@@ -23,6 +23,7 @@
 		3FE77CE018E4A32800F9DB04 /* GW2EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CDF18E4A32800F9DB04 /* GW2EventsViewController.m */; };
 		3FE77CE318E4A36C00F9DB04 /* GW2MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE218E4A36C00F9DB04 /* GW2MapViewController.m */; };
 		3FE77CE618E4A37D00F9DB04 /* GW2SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE518E4A37D00F9DB04 /* GW2SettingsViewController.m */; };
+		3FE77CE918E4A49500F9DB04 /* GW2ServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE818E4A49500F9DB04 /* GW2ServerListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		3FE77CE218E4A36C00F9DB04 /* GW2MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2MapViewController.m; sourceTree = "<group>"; };
 		3FE77CE418E4A37D00F9DB04 /* GW2SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2SettingsViewController.h; sourceTree = "<group>"; };
 		3FE77CE518E4A37D00F9DB04 /* GW2SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2SettingsViewController.m; sourceTree = "<group>"; };
+		3FE77CE718E4A49500F9DB04 /* GW2ServerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2ServerListViewController.h; sourceTree = "<group>"; };
+		3FE77CE818E4A49500F9DB04 /* GW2ServerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2ServerListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +169,8 @@
 				3FE77CE218E4A36C00F9DB04 /* GW2MapViewController.m */,
 				3FE77CE418E4A37D00F9DB04 /* GW2SettingsViewController.h */,
 				3FE77CE518E4A37D00F9DB04 /* GW2SettingsViewController.m */,
+				3FE77CE718E4A49500F9DB04 /* GW2ServerListViewController.h */,
+				3FE77CE818E4A49500F9DB04 /* GW2ServerListViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				3F7A53E918DB744900F77F88 /* main.m in Sources */,
 				3FE77CE318E4A36C00F9DB04 /* GW2MapViewController.m in Sources */,
 				3FE77CE618E4A37D00F9DB04 /* GW2SettingsViewController.m in Sources */,
+				3FE77CE918E4A49500F9DB04 /* GW2ServerListViewController.m in Sources */,
 				3F7A53ED18DB744900F77F88 /* GW2AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

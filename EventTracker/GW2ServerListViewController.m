@@ -9,6 +9,10 @@
 #import "GW2ServerListViewController.h"
 
 @interface GW2ServerListViewController ()
+<
+UITableViewDataSource,
+UITableViewDelegate
+>
 
 @end
 
@@ -45,5 +49,23 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Table View methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5; //TODO: implement
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = nil;
+    
+    //TODO: implement
+    
+    return cell;
+}
+
+
 
 @end
