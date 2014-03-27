@@ -8,6 +8,8 @@
 
 #import "GW2ServerListViewController.h"
 
+static NSString *kServerListCellIdentifier = @"serverListCellIdentifier";
+
 @interface GW2ServerListViewController ()
 <
 UITableViewDelegate,
@@ -59,9 +61,13 @@ UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = nil;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kServerListCellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:kServerListCellIdentifier];
+    }
     
-    //TODO: implement
+    cell.textLabel.text = @"Server Name"; //TODO: implement
     
     return cell;
 }
