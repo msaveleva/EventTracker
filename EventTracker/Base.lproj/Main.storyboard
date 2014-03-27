@@ -73,7 +73,34 @@
                     <view key="view" contentMode="scaleToFill" id="630-UD-y4b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="1" green="0.92015732548176021" blue="0.44660592596002446" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9TB-es-BwE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingsCell" id="9lN-8L-8gj">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9lN-8L-8gj" id="ibz-QM-1Ul">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Zu6-V0-ShL" id="JtE-2E-aG3"/>
+                                    <outlet property="delegate" destination="Zu6-V0-ShL" id="bHU-3d-2YD"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9TB-es-BwE" firstAttribute="leading" secondItem="630-UD-y4b" secondAttribute="leading" id="9ju-xP-HLG"/>
+                            <constraint firstItem="9TB-es-BwE" firstAttribute="top" secondItem="630-UD-y4b" secondAttribute="top" id="CeV-at-JVw"/>
+                            <constraint firstAttribute="bottom" secondItem="9TB-es-BwE" secondAttribute="bottom" id="L4J-MQ-fF3"/>
+                            <constraint firstAttribute="trailing" secondItem="9TB-es-BwE" secondAttribute="trailing" id="V8U-Of-6ia"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DKx-ga-AyR"/>
                 </viewController>

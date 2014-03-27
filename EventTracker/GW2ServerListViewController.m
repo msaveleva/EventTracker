@@ -10,8 +10,8 @@
 
 @interface GW2ServerListViewController ()
 <
-UITableViewDataSource,
-UITableViewDelegate
+UITableViewDelegate,
+UITableViewDataSource
 >
 
 @end
@@ -65,7 +65,5 @@ UITableViewDelegate
     
     return cell;
 }
-
-
 
 @end

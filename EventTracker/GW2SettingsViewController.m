@@ -8,7 +8,19 @@
 
 #import "GW2SettingsViewController.h"
 
+static NSString *kCellIdentifier = @"settingsCell";
+
 @interface GW2SettingsViewController ()
+<
+UITableViewDelegate,
+UITableViewDataSource
+>
+
+typedef NS_ENUM(NSUInteger, GW2SettingsTableViewCellType) {
+    GW2SettingsTableViewCellTypeChangeServer = 0,
+    GW2SettingsTableViewCellTypeMapIcons,
+    GW2SettingsTableViewCellTypeCount,
+};
 
 @end
 
@@ -45,5 +57,39 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Table View methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return GW2SettingsTableViewCellTypeCount;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier];
+    }
+    
+    switch (indexPath.row) {
+        case GW2SettingsTableViewCellTypeChangeServer:
+        {
+            cell.textLabel.text = @"Change Server";
+            return cell;
+        }
+        case GW2SettingsTableViewCellTypeMapIcons:
+        {
+            cell.textLabel.text = @"Map Icons";
+            return cell;
+        }
+
+        return nil;
+    }
+    
+    //TODO: implement
+    
+    return cell;
+}
 
 @end
