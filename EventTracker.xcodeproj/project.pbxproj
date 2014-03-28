@@ -14,13 +14,16 @@
 		3F7A53E918DB744900F77F88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A53E818DB744900F77F88 /* main.m */; };
 		3F7A53ED18DB744900F77F88 /* GW2AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A53EC18DB744900F77F88 /* GW2AppDelegate.m */; };
 		3F7A53F018DB744900F77F88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A53EE18DB744900F77F88 /* Main.storyboard */; };
-		3F7A53F318DB744900F77F88 /* GW2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A53F218DB744900F77F88 /* GW2ViewController.m */; };
 		3F7A53F518DB744900F77F88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A53F418DB744900F77F88 /* Images.xcassets */; };
 		3F7A53FC18DB744900F77F88 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53FB18DB744900F77F88 /* XCTest.framework */; };
 		3F7A53FD18DB744900F77F88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53DC18DB744900F77F88 /* Foundation.framework */; };
 		3F7A53FE18DB744900F77F88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53E018DB744900F77F88 /* UIKit.framework */; };
 		3F7A540618DB744900F77F88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A540418DB744900F77F88 /* InfoPlist.strings */; };
 		3F7A540818DB744900F77F88 /* EventTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A540718DB744900F77F88 /* EventTrackerTests.m */; };
+		3FE77CE018E4A32800F9DB04 /* GW2EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CDF18E4A32800F9DB04 /* GW2EventsViewController.m */; };
+		3FE77CE318E4A36C00F9DB04 /* GW2MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE218E4A36C00F9DB04 /* GW2MapViewController.m */; };
+		3FE77CE618E4A37D00F9DB04 /* GW2SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE518E4A37D00F9DB04 /* GW2SettingsViewController.m */; };
+		3FE77CE918E4A49500F9DB04 /* GW2ServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE818E4A49500F9DB04 /* GW2ServerListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +48,20 @@
 		3F7A53EB18DB744900F77F88 /* GW2AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GW2AppDelegate.h; sourceTree = "<group>"; };
 		3F7A53EC18DB744900F77F88 /* GW2AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GW2AppDelegate.m; sourceTree = "<group>"; };
 		3F7A53EF18DB744900F77F88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3F7A53F118DB744900F77F88 /* GW2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GW2ViewController.h; sourceTree = "<group>"; };
-		3F7A53F218DB744900F77F88 /* GW2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GW2ViewController.m; sourceTree = "<group>"; };
 		3F7A53F418DB744900F77F88 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3F7A53FA18DB744900F77F88 /* EventTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7A53FB18DB744900F77F88 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3F7A540318DB744900F77F88 /* EventTrackerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EventTrackerTests-Info.plist"; sourceTree = "<group>"; };
 		3F7A540518DB744900F77F88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F7A540718DB744900F77F88 /* EventTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventTrackerTests.m; sourceTree = "<group>"; };
+		3FE77CDE18E4A32800F9DB04 /* GW2EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventsViewController.h; sourceTree = "<group>"; };
+		3FE77CDF18E4A32800F9DB04 /* GW2EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventsViewController.m; sourceTree = "<group>"; };
+		3FE77CE118E4A36C00F9DB04 /* GW2MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2MapViewController.h; sourceTree = "<group>"; };
+		3FE77CE218E4A36C00F9DB04 /* GW2MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2MapViewController.m; sourceTree = "<group>"; };
+		3FE77CE418E4A37D00F9DB04 /* GW2SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2SettingsViewController.h; sourceTree = "<group>"; };
+		3FE77CE518E4A37D00F9DB04 /* GW2SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2SettingsViewController.m; sourceTree = "<group>"; };
+		3FE77CE718E4A49500F9DB04 /* GW2ServerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2ServerListViewController.h; sourceTree = "<group>"; };
+		3FE77CE818E4A49500F9DB04 /* GW2ServerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2ServerListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +121,10 @@
 		3F7A53E218DB744900F77F88 /* EventTracker */ = {
 			isa = PBXGroup;
 			children = (
+				3FE77CDD18E4A0A400F9DB04 /* ViewControllers */,
 				3F7A53EB18DB744900F77F88 /* GW2AppDelegate.h */,
 				3F7A53EC18DB744900F77F88 /* GW2AppDelegate.m */,
 				3F7A53EE18DB744900F77F88 /* Main.storyboard */,
-				3F7A53F118DB744900F77F88 /* GW2ViewController.h */,
-				3F7A53F218DB744900F77F88 /* GW2ViewController.m */,
 				3F7A53F418DB744900F77F88 /* Images.xcassets */,
 				3F7A53E318DB744900F77F88 /* Supporting Files */,
 			);
@@ -150,6 +158,21 @@
 				3F7A540418DB744900F77F88 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3FE77CDD18E4A0A400F9DB04 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FE77CDE18E4A32800F9DB04 /* GW2EventsViewController.h */,
+				3FE77CDF18E4A32800F9DB04 /* GW2EventsViewController.m */,
+				3FE77CE118E4A36C00F9DB04 /* GW2MapViewController.h */,
+				3FE77CE218E4A36C00F9DB04 /* GW2MapViewController.m */,
+				3FE77CE418E4A37D00F9DB04 /* GW2SettingsViewController.h */,
+				3FE77CE518E4A37D00F9DB04 /* GW2SettingsViewController.m */,
+				3FE77CE718E4A49500F9DB04 /* GW2ServerListViewController.h */,
+				3FE77CE818E4A49500F9DB04 /* GW2ServerListViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,8 +273,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F7A53F318DB744900F77F88 /* GW2ViewController.m in Sources */,
+				3FE77CE018E4A32800F9DB04 /* GW2EventsViewController.m in Sources */,
 				3F7A53E918DB744900F77F88 /* main.m in Sources */,
+				3FE77CE318E4A36C00F9DB04 /* GW2MapViewController.m in Sources */,
+				3FE77CE618E4A37D00F9DB04 /* GW2SettingsViewController.m in Sources */,
+				3FE77CE918E4A49500F9DB04 /* GW2ServerListViewController.m in Sources */,
 				3F7A53ED18DB744900F77F88 /* GW2AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +483,7 @@
 				3F7A540D18DB744900F77F88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F7A540E18DB744900F77F88 /* Build configuration list for PBXNativeTarget "EventTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +492,7 @@
 				3F7A541018DB744900F77F88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
