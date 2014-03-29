@@ -11,4 +11,7 @@
 
 @interface GW2Event : MTLModel <MTLJSONSerializing>
 
+@property (strong, nonatomic) NSNumber *eventID;
+@property (copy, nonatomic) NSString *eventName;
+
 @end

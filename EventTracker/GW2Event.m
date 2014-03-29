@@ -10,4 +10,12 @@
 
 @implementation GW2Event
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{
+             @"eventID": @"id",
+             @"eventName": @"name",
+             };
+}
+
 @end
