@@ -14,7 +14,8 @@
 +(NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{
-             @"serverList": @"" //TODO: detect what key should be for servers
+             @"serverID": @"serverList.serverID",
+             @"serverName": @"serverList.serverName",
              };
 }
 
