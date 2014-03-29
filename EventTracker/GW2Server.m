@@ -10,4 +10,12 @@
 
 @implementation GW2Server
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{
+             @"serverID": @"id",
+             @"serverName": @"name",
+             };
+}
+
 @end
