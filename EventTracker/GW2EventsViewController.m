@@ -7,8 +7,11 @@
 //
 
 #import "GW2EventsViewController.h"
+#import "GW2ServerList.h"
 
 @interface GW2EventsViewController ()
+
+@property (strong, nonatomic) NSArray *serverList;
 
 @end
 
@@ -27,6 +30,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self fetchData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,5 +49,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)fetchData
+{
+    NSString *serverJSON = @"https://api.guildwars2.com/v1/world_names.json?lang=en";
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:[NSURL URLWithString:serverJSON]
+            completionHandler:^(NSData *data,
+                                NSURLResponse *response,
+                                NSError *error) {
+                NSDictionary *jSONDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+                self.serverList =
+                [MTLJSONAdapter modelOfClass:[GW2ServerList class] fromJSONDictionary:jSONDict error:NULL];
+                NSLog(@"Data: %@", self.serverList);
+            }] resume];
+}
 
 @end

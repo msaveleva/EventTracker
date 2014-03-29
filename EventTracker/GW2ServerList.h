@@ -13,4 +13,6 @@
 
 @interface GW2ServerList : MTLModel <MTLJSONSerializing>
 
+@property (strong, nonatomic) NSArray *serverList;
+
 @end

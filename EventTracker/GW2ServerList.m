@@ -11,4 +11,16 @@
 
 @implementation GW2ServerList
 
++(NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{
+             @"serverList": @"" //TODO: detect what key should be for servers
+             };
+}
+
++ (NSValueTransformer *)serverListJSONTransformer
+{
+    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[GW2Server class]];
+}
+
 @end
