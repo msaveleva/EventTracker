@@ -8,6 +8,7 @@
 
 #import "GW2EventsViewController.h"
 #import "GW2ServerList.h"
+#import "GW2Server.h"
 
 @interface GW2EventsViewController ()
 
@@ -59,10 +60,10 @@
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error) {
-                NSDictionary *jSONDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+                NSArray *jSONDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
                 NSLog(@"JSON: %@", jSONDict);
                 self.serverList =
-                [MTLJSONAdapter modelOfClass:[GW2ServerList class] fromJSONDictionary:jSONDict error:NULL];
+                [MTLJSONAdapter modelOfClass:[GW2Server class] fromJSONDictionary:jSONDict[0] error:NULL];
                 NSLog(@"ServerList: %@", self.serverList);
             }] resume];
 }
