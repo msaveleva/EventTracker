@@ -12,6 +12,6 @@
 @interface GW2Server : MTLModel <MTLJSONSerializing>
 
 @property (strong, nonatomic) NSNumber *serverID;
-@property (strong, nonatomic) NSString *serverName;
+@property (copy, nonatomic) NSString *serverName;
 
 @end
