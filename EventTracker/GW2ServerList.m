@@ -7,6 +7,7 @@
 //
 
 #import "GW2ServerList.h"
+#import "GW2Server.h"
 
 @implementation GW2ServerList
 

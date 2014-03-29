@@ -7,6 +7,7 @@
 //
 
 #import "GW2EventList.h"
+#import "GW2Event.h"
 
 @implementation GW2EventList
 

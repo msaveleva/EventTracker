@@ -9,6 +9,8 @@
 #import "MTLModel.h"
 #import <Mantle.h>
 
+@class GW2Server;
+
 @interface GW2ServerList : MTLModel <MTLJSONSerializing>
 
 @end

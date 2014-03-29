@@ -1,5 +1,5 @@
 //
-//  GW2EventList.h
+//  GW2EventName.h
 //  EventTracker
 //
 //  Created by Maria Saveleva on 29/03/14.
@@ -9,8 +9,9 @@
 #import "MTLModel.h"
 #import <Mantle.h>
 
-@class GW2Event;
+@interface GW2EventName : MTLModel
 
-@interface GW2EventList : MTLModel <MTLJSONSerializing>
+@property (strong, nonatomic) NSNumber *eventID;
+@property (copy, nonatomic) NSString *eventName;
 
 @end
