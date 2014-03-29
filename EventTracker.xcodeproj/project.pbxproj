@@ -29,6 +29,7 @@
 		4C0390C618E6DD2600783F6E /* GW2Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0390C518E6DD2600783F6E /* GW2Event.m */; };
 		4C0390C918E6DD3400783F6E /* GW2EventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0390C818E6DD3400783F6E /* GW2EventList.m */; };
 		4C0390CC18E6DD3B00783F6E /* GW2ServerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0390CB18E6DD3B00783F6E /* GW2ServerList.m */; };
+		4C0390CF18E6E01100783F6E /* GW2Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0390CE18E6E01100783F6E /* GW2Map.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		4C0390C818E6DD3400783F6E /* GW2EventList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventList.m; sourceTree = "<group>"; };
 		4C0390CA18E6DD3B00783F6E /* GW2ServerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2ServerList.h; sourceTree = "<group>"; };
 		4C0390CB18E6DD3B00783F6E /* GW2ServerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2ServerList.m; sourceTree = "<group>"; };
+		4C0390CD18E6E01100783F6E /* GW2Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2Map.h; sourceTree = "<group>"; };
+		4C0390CE18E6E01100783F6E /* GW2Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2Map.m; sourceTree = "<group>"; };
 		4F6620E7F0BB4122AFB96F31 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CDD4CE50084224B3E9D3BE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,6 +204,8 @@
 				4C0390C218E6DD1800783F6E /* GW2Server.m */,
 				4C0390C418E6DD2600783F6E /* GW2Event.h */,
 				4C0390C518E6DD2600783F6E /* GW2Event.m */,
+				4C0390CD18E6E01100783F6E /* GW2Map.h */,
+				4C0390CE18E6E01100783F6E /* GW2Map.m */,
 				4C0390C718E6DD3400783F6E /* GW2EventList.h */,
 				4C0390C818E6DD3400783F6E /* GW2EventList.m */,
 				4C0390CA18E6DD3B00783F6E /* GW2ServerList.h */,
@@ -351,6 +356,7 @@
 				3FE77CE918E4A49500F9DB04 /* GW2ServerListViewController.m in Sources */,
 				3F7A53ED18DB744900F77F88 /* GW2AppDelegate.m in Sources */,
 				4C0390C618E6DD2600783F6E /* GW2Event.m in Sources */,
+				4C0390CF18E6E01100783F6E /* GW2Map.m in Sources */,
 				4C0390C918E6DD3400783F6E /* GW2EventList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
