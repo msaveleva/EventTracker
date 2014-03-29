@@ -60,9 +60,10 @@
                                 NSURLResponse *response,
                                 NSError *error) {
                 NSDictionary *jSONDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+                NSLog(@"JSON: %@", jSONDict);
                 self.serverList =
                 [MTLJSONAdapter modelOfClass:[GW2ServerList class] fromJSONDictionary:jSONDict error:NULL];
-                NSLog(@"Data: %@", self.serverList);
+                NSLog(@"ServerList: %@", self.serverList);
             }] resume];
 }
 
