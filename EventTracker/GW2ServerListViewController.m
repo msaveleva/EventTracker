@@ -85,7 +85,6 @@ UITableViewDataSource
     NSNumber *selectedServerID = [self.servers.serverList[indexPath.row] serverID];
     [[GW2UserSettings sharedSettings] setUserServerID:selectedServerID];
     
-    //TODO: handle viewController dismiss
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

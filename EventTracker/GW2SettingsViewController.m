@@ -7,6 +7,7 @@
 //
 
 #import "GW2SettingsViewController.h"
+#import "GW2ServerListViewController.h"
 
 static NSString *kCellIdentifier = @"settingsCell";
 
@@ -87,9 +88,21 @@ typedef NS_ENUM(NSUInteger, GW2SettingsTableViewCellType) {
         return nil;
     }
     
-    //TODO: implement
-    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GW2ServerListViewController *viewController;
+    switch (indexPath.row) {
+        case GW2SettingsTableViewCellTypeChangeServer:
+            viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"serverList"];
+//            [self presentViewController:viewController animated:NO completion:nil];
+            [self.navigationController pushViewController:viewController animated:YES];
+            break;
+        case GW2SettingsTableViewCellTypeMapIcons:
+            break;
+    }
 }
 
 @end
