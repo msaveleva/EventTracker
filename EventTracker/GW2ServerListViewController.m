@@ -10,6 +10,7 @@
 #import "GW2Server.h"
 #import "GW2ServerList.h"
 #import "GW2Client.h"
+#import "GW2UserSettings.h"
 
 static NSString *kServerListCellIdentifier = @"serverListCellIdentifier";
 
@@ -77,6 +78,14 @@ UITableViewDataSource
     cell.textLabel.text = [self.servers.serverList[indexPath.row] serverName];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSNumber *selectedServerID = [self.servers.serverList[indexPath.row] serverID];
+    [[GW2UserSettings sharedSettings] setUserServerID:selectedServerID];
+    
+    //TODO: handle viewController dismiss
 }
 
 @end
