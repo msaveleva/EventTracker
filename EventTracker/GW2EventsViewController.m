@@ -9,8 +9,14 @@
 #import "GW2EventsViewController.h"
 #import "GW2UserSettings.h"
 #import "GW2ServerListViewController.h"
+#import "GW2MapList.h"
+#import "GW2Map.h"
+#import "GW2Client.h"
 
 @interface GW2EventsViewController ()
+
+@property (strong, nonatomic) GW2MapList *mapList;
+@property (strong, nonatomic) GW2Client *client;
 
 @end
 
@@ -34,6 +40,19 @@
             [self.storyboard instantiateViewControllerWithIdentifier:@"serverList"];
         [self presentViewController:viewController animated:NO completion:nil];
     }
+    
+    self.client = [GW2Client new];
+    
+    __weak typeof(self) weakself = self;
+    [self.client fetchMapListWithCompletionHandler:^(NSData *recievedData){
+        NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:recievedData
+                                                             options:0
+                                                               error:NULL];
+        NSDictionary *jSONDict = @{@"allMaps": jSONArray};
+        weakself.mapList = [MTLJSONAdapter modelOfClass:[GW2MapList class]
+                                     fromJSONDictionary:jSONDict
+                                                  error:NULL];
+    }];
 }
 
 - (void)didReceiveMemoryWarning

@@ -11,5 +11,10 @@
 @interface GW2Client : NSObject
 
 - (void)fetchSeverListWithCompletionHandler:(void (^)(NSData *data))completionHandler;
+- (void)fetchMapListWithCompletionHandler:(void (^)(NSData *data))completionHandler;
+
+- (void)fetchEventListForServerWithID:(NSNumber *)serverID
+                            mapWithID:(NSNumber *)mapID
+                withCompletionHandler:(void (^)(NSData *data))completionHandler;
 
 @end

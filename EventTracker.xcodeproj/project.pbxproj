@@ -10,6 +10,7 @@
 		1FAA495018A8415C953CC409 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6620E7F0BB4122AFB96F31 /* libPods.a */; };
 		3F21419218E80BF400213CCC /* GW2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F21419118E80BF400213CCC /* GW2Client.m */; };
 		3F21419718E85EA900213CCC /* GW2UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F21419618E85EA900213CCC /* GW2UserSettings.m */; };
+		3F21419A18E86C6E00213CCC /* GW2MapList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F21419918E86C6E00213CCC /* GW2MapList.m */; };
 		3F7A53DD18DB744900F77F88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53DC18DB744900F77F88 /* Foundation.framework */; };
 		3F7A53DF18DB744900F77F88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53DE18DB744900F77F88 /* CoreGraphics.framework */; };
 		3F7A53E118DB744900F77F88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53E018DB744900F77F88 /* UIKit.framework */; };
@@ -50,6 +51,8 @@
 		3F21419118E80BF400213CCC /* GW2Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2Client.m; sourceTree = "<group>"; };
 		3F21419518E85EA900213CCC /* GW2UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2UserSettings.h; sourceTree = "<group>"; };
 		3F21419618E85EA900213CCC /* GW2UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2UserSettings.m; sourceTree = "<group>"; };
+		3F21419818E86C6E00213CCC /* GW2MapList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2MapList.h; sourceTree = "<group>"; };
+		3F21419918E86C6E00213CCC /* GW2MapList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2MapList.m; sourceTree = "<group>"; };
 		3F7A53D918DB744900F77F88 /* EventTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7A53DC18DB744900F77F88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F7A53DE18DB744900F77F88 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -235,12 +238,14 @@
 				4C0390CB18E6DD3B00783F6E /* GW2ServerList.m */,
 				4C0390C418E6DD2600783F6E /* GW2Event.h */,
 				4C0390C518E6DD2600783F6E /* GW2Event.m */,
+				4C0390C718E6DD3400783F6E /* GW2EventList.h */,
+				4C0390C818E6DD3400783F6E /* GW2EventList.m */,
 				4C0390D018E6E44500783F6E /* GW2EventName.h */,
 				4C0390D118E6E44500783F6E /* GW2EventName.m */,
 				4C0390CD18E6E01100783F6E /* GW2Map.h */,
 				4C0390CE18E6E01100783F6E /* GW2Map.m */,
-				4C0390C718E6DD3400783F6E /* GW2EventList.h */,
-				4C0390C818E6DD3400783F6E /* GW2EventList.m */,
+				3F21419818E86C6E00213CCC /* GW2MapList.h */,
+				3F21419918E86C6E00213CCC /* GW2MapList.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				3F7A53E918DB744900F77F88 /* main.m in Sources */,
 				4C0390C318E6DD1800783F6E /* GW2Server.m in Sources */,
 				3F21419218E80BF400213CCC /* GW2Client.m in Sources */,
+				3F21419A18E86C6E00213CCC /* GW2MapList.m in Sources */,
 				3FE77CE318E4A36C00F9DB04 /* GW2MapViewController.m in Sources */,
 				3FE77CE618E4A37D00F9DB04 /* GW2SettingsViewController.m in Sources */,
 				3FE77CE918E4A49500F9DB04 /* GW2ServerListViewController.m in Sources */,
