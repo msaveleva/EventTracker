@@ -85,6 +85,11 @@ UITableViewDataSource
     NSNumber *selectedServerID = [self.servers.serverList[indexPath.row] serverID];
     [[GW2UserSettings sharedSettings] setUserServerID:selectedServerID];
     
+    if (self.navigationController != nil) {
+        //TODO: implement checkmark properly
+        [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
