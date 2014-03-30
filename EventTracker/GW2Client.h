@@ -13,8 +13,6 @@
 
 @property (weak, nonatomic) id<GW2Protocol>delegate;
 
-+ (instancetype)sharedInstance;
-
 - (void)fetchServerList;
 
 @end

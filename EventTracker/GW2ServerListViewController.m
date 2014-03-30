@@ -39,7 +39,9 @@ UITableViewDataSource
 {
     [super viewDidLoad];
     
-    [[GW2Client sharedInstance] fetchServerList];
+    GW2Client *client = [GW2Client new];
+    client.delegate = self;
+    [client fetchServerList];
 }
 
 #pragma mark - Table View methods

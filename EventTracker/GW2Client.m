@@ -13,17 +13,6 @@ static NSString * const serverListURL = @"https://api.guildwars2.com/v1/world_na
 
 @implementation GW2Client
 
-+ (instancetype)sharedInstance
-{
-    static GW2Client *client = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        client = [[self alloc] init];
-    });
-    
-    return client;
-}
-
 - (void)fetchServerList
 {
     NSURLSession *session = [NSURLSession sharedSession];
