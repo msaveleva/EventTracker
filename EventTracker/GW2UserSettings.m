@@ -14,6 +14,17 @@
 
 @implementation GW2UserSettings
 
++ (instancetype)sharedSettings
+{
+    static GW2UserSettings *userSettings = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        userSettings = [[self alloc] init];
+    });
+    
+    return userSettings;
+}
+
 - (void)setUserServerID:(NSNumber *)userServerID
 {
     _userServerID = userServerID;

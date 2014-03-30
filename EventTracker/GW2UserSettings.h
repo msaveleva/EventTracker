@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) NSNumber *userServerID;
 
++ (instancetype)sharedSettings;
+
 - (NSNumber *)loadServerID;
 
 @end
