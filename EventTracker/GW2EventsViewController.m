@@ -7,6 +7,8 @@
 //
 
 #import "GW2EventsViewController.h"
+#import "GW2UserSettings.h"
+#import "GW2ServerListViewController.h"
 
 @interface GW2EventsViewController ()
 
@@ -26,7 +28,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    if ([[GW2UserSettings sharedSettings] loadServerID] == nil) {
+        GW2ServerListViewController *viewController =
+            [self.storyboard instantiateViewControllerWithIdentifier:@"serverList"];
+        [self presentViewController:viewController animated:NO completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning
