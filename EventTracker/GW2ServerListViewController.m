@@ -9,6 +9,7 @@
 #import "GW2ServerListViewController.h"
 #import "GW2Server.h"
 #import "GW2ServerList.h"
+#import "GW2Client.h"
 
 static NSString *kServerListCellIdentifier = @"serverListCellIdentifier";
 
@@ -18,7 +19,7 @@ UITableViewDelegate,
 UITableViewDataSource
 >
 
-@property (strong, nonatomic) NSArray *serverList;
+@property (strong, nonatomic) GW2ServerList *serverList;
 
 @end
 
@@ -36,25 +37,9 @@ UITableViewDataSource
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [[GW2Client sharedInstance] fetchServerList];
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - Table View methods
 
@@ -76,19 +61,17 @@ UITableViewDataSource
     return cell;
 }
 
-- (void)fetchData
+#pragma mark - GW2Protocol methods
+
+- (void)recievedJSONData:(NSData *)data
 {
-    NSString *serverJSON = @"https://api.guildwars2.com/v1/world_names.json?lang=en";
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString:serverJSON]
-            completionHandler:^(NSData *data,
-                                NSURLResponse *response,
-                                NSError *error) {
-                NSDictionary *jSONDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-                self.serverList =
-                    [MTLJSONAdapter modelOfClass:[GW2ServerList class] fromJSONDictionary:jSONDict error:NULL];
-            }] resume];
+    NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:data
+                                                         options:0
+                                                           error:NULL];
+    NSDictionary *jSONDict = @{@"serverList": jSONArray};
+    self.serverList = [MTLJSONAdapter modelOfClass:[GW2ServerList class]
+                                fromJSONDictionary:jSONDict
+                                             error:NULL];
 }
 
 @end

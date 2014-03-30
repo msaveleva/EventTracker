@@ -9,7 +9,7 @@
 #import "GW2Client.h"
 #import "GW2ServerList.h"
 
-static NSString *serverListURL = @"https://api.guildwars2.com/v1/world_names.json?lang=en";
+static NSString * const serverListURL = @"https://api.guildwars2.com/v1/world_names.json?lang=en";
 
 @implementation GW2Client
 

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GW2Protocol.h"
 
-@interface GW2ServerListViewController : UIViewController
+@interface GW2ServerListViewController : UIViewController <GW2Protocol>
 
 @end
