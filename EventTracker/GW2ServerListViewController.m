@@ -1,4 +1,4 @@
-//
+    //
 //  GW2ServerListViewController.m
 //  EventTracker
 //
@@ -86,6 +86,7 @@ UITableViewDataSource
     [[GW2UserSettings sharedSettings] setUserServerID:selectedServerID];
     
     //TODO: handle viewController dismiss
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
