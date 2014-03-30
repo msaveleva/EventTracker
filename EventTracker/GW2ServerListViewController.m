@@ -46,6 +46,11 @@ UITableViewDataSource
 
 #pragma mark - Table View methods
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.servers.serverList count];
@@ -53,13 +58,11 @@ UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kServerListCellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:kServerListCellIdentifier];
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kServerListCellIdentifier
+                             forIndexPath:indexPath];
     
-    cell.textLabel.text = [self.servers.serverList[indexPath.row] name];
+    cell.textLabel.text = @"Text";
+    cell.textLabel.text = [self.servers.serverList[indexPath.row] serverName];
     
     return cell;
 }
