@@ -43,7 +43,6 @@
 /*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
@@ -60,11 +59,15 @@
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error) {
-                NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+                NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:data options:0
+                                                                       error:NULL];
                 NSDictionary *jSONDict = @{@"serverList": jSONArray};
                 NSLog(@"JSON: %@", jSONDict);
-                self.serverList = [MTLJSONAdapter modelOfClass:[GW2ServerList class] fromJSONDictionary:jSONDict error:NULL];
-                NSLog(@"ServerList: %@", [(GW2Server *)self.serverList.serverList[10] serverName]);
+                self.serverList = [MTLJSONAdapter modelOfClass:[GW2ServerList class]
+                                            fromJSONDictionary:jSONDict
+                                                         error:NULL];
+                NSLog(@"ServerList: %@", [(GW2Server *)self.serverList.serverList[10]
+                                          serverName]);
             }] resume];
 }
 
