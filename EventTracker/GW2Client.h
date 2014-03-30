@@ -7,12 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GW2Protocol.h"
 
 @interface GW2Client : NSObject
 
-@property (weak, nonatomic) id<GW2Protocol>delegate;
-
-- (void)fetchServerList;
+- (void)fetchSeverListWithCompletionHandler:(void (^)(NSData *data))completionHandler;
 
 @end

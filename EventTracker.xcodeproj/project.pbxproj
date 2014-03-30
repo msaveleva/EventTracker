@@ -47,7 +47,6 @@
 /* Begin PBXFileReference section */
 		3F21419018E80BF400213CCC /* GW2Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2Client.h; sourceTree = "<group>"; };
 		3F21419118E80BF400213CCC /* GW2Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2Client.m; sourceTree = "<group>"; };
-		3F21419318E80C0700213CCC /* GW2Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GW2Protocol.h; sourceTree = "<group>"; };
 		3F7A53D918DB744900F77F88 /* EventTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7A53DC18DB744900F77F88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F7A53DE18DB744900F77F88 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,7 +118,6 @@
 			children = (
 				3F21419018E80BF400213CCC /* GW2Client.h */,
 				3F21419118E80BF400213CCC /* GW2Client.m */,
-				3F21419318E80C0700213CCC /* GW2Protocol.h */,
 			);
 			name = Network;
 			sourceTree = "<group>";

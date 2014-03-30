@@ -41,8 +41,19 @@ UITableViewDataSource
     [super viewDidLoad];
     
     self.client = [GW2Client new];
-    self.client.delegate = self;
-    [self.client fetchServerList];
+    
+    __weak typeof(self) weakself = self;
+    [self.client fetchSeverListWithCompletionHandler:^(NSData *recievedData){
+        NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:recievedData
+                                                             options:0
+                                                               error:NULL];
+        NSDictionary *jSONDict = @{@"serverList": jSONArray};
+        weakself.servers = [MTLJSONAdapter modelOfClass:[GW2ServerList class]
+                                     fromJSONDictionary:jSONDict
+                                                  error:NULL];
+        
+        [weakself.serversTableView reloadData];
+    }];
 }
 
 #pragma mark - Table View methods
@@ -66,20 +77,6 @@ UITableViewDataSource
     cell.textLabel.text = [self.servers.serverList[indexPath.row] serverName];
     
     return cell;
-}
-
-#pragma mark - GW2Protocol methods
-
-- (void)recievedJSONData:(NSData *)data
-{
-    NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:data
-                                                         options:0
-                                                           error:NULL];
-    NSDictionary *jSONDict = @{@"serverList": jSONArray};
-    self.servers = [MTLJSONAdapter modelOfClass:[GW2ServerList class]
-                                fromJSONDictionary:jSONDict
-                                             error:NULL];
-    [self.serversTableView reloadData];
 }
 
 @end
