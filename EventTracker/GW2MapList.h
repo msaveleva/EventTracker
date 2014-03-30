@@ -7,7 +7,10 @@
 //
 
 #import "MTLModel.h"
+#import <Mantle.h>
 
-@interface GW2MapList : MTLModel
+@interface GW2MapList : MTLModel <MTLJSONSerializing>
+
+@property (strong, nonatomic) NSArray *allMaps;
 
 @end

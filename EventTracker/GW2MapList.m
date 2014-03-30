@@ -8,7 +8,18 @@
 //
 
 #import "GW2MapList.h"
+#import "GW2Map.h"
 
 @implementation GW2MapList
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{@"allMap": @"allMap"};
+}
+
++ (NSValueTransformer *)serverListJSONTransformer
+{
+    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[GW2Map class]];
+}
 
 @end

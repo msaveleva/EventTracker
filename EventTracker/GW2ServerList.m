@@ -11,7 +11,7 @@
 
 @implementation GW2ServerList
 
-+(NSDictionary *)JSONKeyPathsByPropertyKey
++ (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{@"serverList": @"serverList"};
 }
