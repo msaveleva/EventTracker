@@ -12,6 +12,7 @@
 
 static NSString * const serverListURL = @"https://api.guildwars2.com/v1/world_names.json?lang=en";
 static NSString * const mapListURL = @"https://api.guildwars2.com/v1/map_names.json?lang=en";
+static NSString * const eventListURL = @"https://api.guildwars2.com/v1/events.json?";
 
 @implementation GW2Client
 
@@ -34,6 +35,29 @@ static NSString * const mapListURL = @"https://api.guildwars2.com/v1/map_names.j
     NSURLSession *session = [NSURLSession sharedSession];
     
     [[session dataTaskWithURL:[NSURL URLWithString:mapListURL]
+            completionHandler:^(NSData *data,
+                                NSURLResponse *response,
+                                NSError *error){
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    completionHandler(data);
+                });
+            }] resume];
+}
+
+- (void)fetchEventListForServerWithID:(NSNumber *)serverID
+                            mapWithID:(NSNumber *)mapID
+                withCompletionHandler:(void (^)(NSData *))completionHandler
+{
+    NSString *eventListWithServer = [eventListURL stringByAppendingString:
+                                     [NSString stringWithFormat:@"world_id=%ld",
+                                      (long)[serverID integerValue]]];
+    NSString *eventListWithMap = [eventListWithServer stringByAppendingString:
+                                  [NSString stringWithFormat:@"&map_id=%ld",
+                                   (long)[mapID integerValue]]];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    [[session dataTaskWithURL:[NSURL URLWithString:eventListWithMap]
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error){
