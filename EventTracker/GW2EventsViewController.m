@@ -64,7 +64,7 @@
                              NSDictionary *jSONDict = [NSJSONSerialization JSONObjectWithData:recievedData
                                                                                       options:0
                                                                                         error:NULL];
-                             weakself.mapList = [MTLJSONAdapter modelOfClass:[GW2EventList class]
+                             weakself.eventList = [MTLJSONAdapter modelOfClass:[GW2EventList class]
                                                           fromJSONDictionary:jSONDict
                                                                        error:NULL];
     }];

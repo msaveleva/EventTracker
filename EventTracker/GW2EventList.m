@@ -11,4 +11,14 @@
 
 @implementation GW2EventList
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{@"allEvents": @"events"};
+}
+
++ (NSValueTransformer *)serverListJSONTransformer
+{
+    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[GW2Event class]];
+}
+
 @end
