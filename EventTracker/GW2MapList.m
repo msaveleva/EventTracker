@@ -14,7 +14,7 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
-    return @{@"allMap": @"allMap"};
+    return @{@"allMaps": @"allMaps"};
 }
 
 + (NSValueTransformer *)serverListJSONTransformer
