@@ -11,6 +11,6 @@
 @protocol GW2Protocol <NSObject>
 
 @required
-- (void)recievedJSON;
+- (void)recievedJSONData:(NSData *)data;
 
 @end

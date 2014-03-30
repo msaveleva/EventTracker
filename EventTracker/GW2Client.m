@@ -7,6 +7,9 @@
 //
 
 #import "GW2Client.h"
+#import "GW2ServerList.h"
+
+static NSString *serverListURL = @"https://api.guildwars2.com/v1/world_names.json?lang=en";
 
 @implementation GW2Client
 
@@ -19,6 +22,19 @@
     });
     
     return client;
+}
+
+- (void)fetchServerList
+{
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:[NSURL URLWithString:serverListURL]
+            completionHandler:^(NSData *data,
+                                NSURLResponse *response,
+                                NSError *error){
+                if (self.delegate) {
+                    [self.delegate recievedJSONData:data];
+                }
+    }] resume];
 }
 
 @end
