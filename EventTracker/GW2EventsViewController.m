@@ -59,7 +59,8 @@
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error) {
-                NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:data options:0
+                NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:data
+                                                                     options:0
                                                                        error:NULL];
                 NSDictionary *jSONDict = @{@"serverList": jSONArray};
                 NSLog(@"JSON: %@", jSONDict);
