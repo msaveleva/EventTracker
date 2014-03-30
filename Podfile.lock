@@ -4,7 +4,7 @@ PODS:
   - Mantle/extobjc (1.4.1)
 
 DEPENDENCIES:
-  - Mantle
+  - Mantle (~> 1.4.1)
 
 SPEC CHECKSUMS:
   Mantle: 0714cdb2b8559d9e6c2410d6a8529e3307bff189
