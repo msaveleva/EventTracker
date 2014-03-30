@@ -27,7 +27,7 @@
         <scene sceneID="hNB-Aq-0Fm">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="gjf-rC-VmB" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="S3A-NI-aoq">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -199,6 +199,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="serversTableView" destination="Njd-Fe-cE4" id="cf6-sy-MqQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpe-nb-zC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

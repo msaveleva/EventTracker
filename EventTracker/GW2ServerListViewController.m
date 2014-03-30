@@ -7,6 +7,9 @@
 //
 
 #import "GW2ServerListViewController.h"
+#import "GW2Server.h"
+#import "GW2ServerList.h"
+#import "GW2Client.h"
 
 static NSString *kServerListCellIdentifier = @"serverListCellIdentifier";
 
@@ -15,6 +18,10 @@ static NSString *kServerListCellIdentifier = @"serverListCellIdentifier";
 UITableViewDelegate,
 UITableViewDataSource
 >
+
+@property (weak, nonatomic) IBOutlet UITableView *serversTableView;
+@property (strong, nonatomic) GW2ServerList *servers;
+@property (strong, nonatomic) GW2Client *client;
 
 @end
 
@@ -32,42 +39,42 @@ UITableViewDataSource
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.client = [GW2Client new];
+    
+    __weak typeof(self) weakself = self;
+    [self.client fetchSeverListWithCompletionHandler:^(NSData *recievedData){
+        NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:recievedData
+                                                             options:0
+                                                               error:NULL];
+        NSDictionary *jSONDict = @{@"serverList": jSONArray};
+        weakself.servers = [MTLJSONAdapter modelOfClass:[GW2ServerList class]
+                                     fromJSONDictionary:jSONDict
+                                                  error:NULL];
+        
+        [weakself.serversTableView reloadData];
+    }];
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - Table View methods
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5; //TODO: implement
+    return [self.servers.serverList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kServerListCellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:kServerListCellIdentifier];
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kServerListCellIdentifier
+                             forIndexPath:indexPath];
     
-    cell.textLabel.text = @"Server Name"; //TODO: implement
+    cell.textLabel.text = @"Text";
+    cell.textLabel.text = [self.servers.serverList[indexPath.row] serverName];
     
     return cell;
 }
