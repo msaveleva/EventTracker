@@ -13,10 +13,7 @@
 
 +(NSDictionary *)JSONKeyPathsByPropertyKey
 {
-    return @{
-             @"serverID": @"serverList.serverID",
-             @"serverName": @"serverList.serverName",
-             };
+    return @{@"serverList": @"serverList"};
 }
 
 + (NSValueTransformer *)serverListJSONTransformer

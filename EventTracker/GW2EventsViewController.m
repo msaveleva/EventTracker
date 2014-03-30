@@ -12,7 +12,7 @@
 
 @interface GW2EventsViewController ()
 
-@property (strong, nonatomic) NSArray *serverList;
+@property (strong, nonatomic) GW2ServerList *serverList;
 
 @end
 
@@ -60,11 +60,11 @@
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error) {
-                NSArray *jSONDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+                NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+                NSDictionary *jSONDict = @{@"serverList": jSONArray};
                 NSLog(@"JSON: %@", jSONDict);
-                self.serverList =
-                [MTLJSONAdapter modelOfClass:[GW2Server class] fromJSONDictionary:jSONDict[0] error:NULL];
-                NSLog(@"ServerList: %@", self.serverList);
+                self.serverList = [MTLJSONAdapter modelOfClass:[GW2ServerList class] fromJSONDictionary:jSONDict error:NULL];
+                NSLog(@"ServerList: %@", [(GW2Server *)self.serverList.serverList[10] serverName]);
             }] resume];
 }
 
