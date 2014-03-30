@@ -21,6 +21,7 @@ UITableViewDataSource
 
 @property (weak, nonatomic) IBOutlet UITableView *serversTableView;
 @property (strong, nonatomic) GW2ServerList *servers;
+@property (strong, nonatomic) GW2Client *client;
 
 @end
 
@@ -39,9 +40,9 @@ UITableViewDataSource
 {
     [super viewDidLoad];
     
-    GW2Client *client = [GW2Client new];
-    client.delegate = self;
-    [client fetchServerList];
+    self.client = [GW2Client new];
+    self.client.delegate = self;
+    [self.client fetchServerList];
 }
 
 #pragma mark - Table View methods

@@ -17,13 +17,15 @@ static NSString * const serverListURL = @"https://api.guildwars2.com/v1/world_na
 {
     NSURLSession *session = [NSURLSession sharedSession];
     
+    __weak typeof(self) weakSelf = self;
+    
     [[session dataTaskWithURL:[NSURL URLWithString:serverListURL]
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error){
-                if (self.delegate) {
+                if (weakSelf.delegate) {
                     dispatch_sync(dispatch_get_main_queue(), ^{
-                        [self.delegate recievedJSONData:data];
+                        [weakSelf.delegate recievedJSONData:data];
                     });
                 }
     }] resume];
