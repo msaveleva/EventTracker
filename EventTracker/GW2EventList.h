@@ -13,4 +13,6 @@
 
 @interface GW2EventList : MTLModel <MTLJSONSerializing>
 
+@property (strong, nonatomic) NSArray *allEvents;
+
 @end
