@@ -19,7 +19,8 @@ UITableViewDelegate,
 UITableViewDataSource
 >
 
-@property (strong, nonatomic) GW2ServerList *serverList;
+@property (weak, nonatomic) IBOutlet UITableView *serversTableView;
+@property (strong, nonatomic) GW2ServerList *servers;
 
 @end
 
@@ -45,7 +46,7 @@ UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5; //TODO: implement
+    return [self.servers.serverList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,7 +57,7 @@ UITableViewDataSource
                                       reuseIdentifier:kServerListCellIdentifier];
     }
     
-    cell.textLabel.text = @"Server Name"; //TODO: implement
+    cell.textLabel.text = [self.servers.serverList[indexPath.row] name];
     
     return cell;
 }
@@ -69,9 +70,10 @@ UITableViewDataSource
                                                          options:0
                                                            error:NULL];
     NSDictionary *jSONDict = @{@"serverList": jSONArray};
-    self.serverList = [MTLJSONAdapter modelOfClass:[GW2ServerList class]
+    self.servers = [MTLJSONAdapter modelOfClass:[GW2ServerList class]
                                 fromJSONDictionary:jSONDict
                                              error:NULL];
+    [self.serversTableView reloadData];
 }
 
 @end
