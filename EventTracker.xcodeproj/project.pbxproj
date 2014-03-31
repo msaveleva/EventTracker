@@ -11,6 +11,7 @@
 		3F21419218E80BF400213CCC /* GW2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F21419118E80BF400213CCC /* GW2Client.m */; };
 		3F21419718E85EA900213CCC /* GW2UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F21419618E85EA900213CCC /* GW2UserSettings.m */; };
 		3F21419A18E86C6E00213CCC /* GW2MapList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F21419918E86C6E00213CCC /* GW2MapList.m */; };
+		3F21419D18E9F16B00213CCC /* GW2MapListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F21419C18E9F16B00213CCC /* GW2MapListViewController.m */; };
 		3F7A53DD18DB744900F77F88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53DC18DB744900F77F88 /* Foundation.framework */; };
 		3F7A53DF18DB744900F77F88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53DE18DB744900F77F88 /* CoreGraphics.framework */; };
 		3F7A53E118DB744900F77F88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53E018DB744900F77F88 /* UIKit.framework */; };
@@ -53,6 +54,8 @@
 		3F21419618E85EA900213CCC /* GW2UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2UserSettings.m; sourceTree = "<group>"; };
 		3F21419818E86C6E00213CCC /* GW2MapList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2MapList.h; sourceTree = "<group>"; };
 		3F21419918E86C6E00213CCC /* GW2MapList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2MapList.m; sourceTree = "<group>"; };
+		3F21419B18E9F16B00213CCC /* GW2MapListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2MapListViewController.h; sourceTree = "<group>"; };
+		3F21419C18E9F16B00213CCC /* GW2MapListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2MapListViewController.m; sourceTree = "<group>"; };
 		3F7A53D918DB744900F77F88 /* EventTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7A53DC18DB744900F77F88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F7A53DE18DB744900F77F88 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -225,6 +228,8 @@
 				3FE77CE518E4A37D00F9DB04 /* GW2SettingsViewController.m */,
 				3FE77CE718E4A49500F9DB04 /* GW2ServerListViewController.h */,
 				3FE77CE818E4A49500F9DB04 /* GW2ServerListViewController.m */,
+				3F21419B18E9F16B00213CCC /* GW2MapListViewController.h */,
+				3F21419C18E9F16B00213CCC /* GW2MapListViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 				3F7A53ED18DB744900F77F88 /* GW2AppDelegate.m in Sources */,
 				4C0390C618E6DD2600783F6E /* GW2Event.m in Sources */,
 				4C0390CF18E6E01100783F6E /* GW2Map.m in Sources */,
+				3F21419D18E9F16B00213CCC /* GW2MapListViewController.m in Sources */,
 				4C0390C918E6DD3400783F6E /* GW2EventList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
