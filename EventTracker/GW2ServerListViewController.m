@@ -77,6 +77,11 @@ UITableViewDataSource
     cell.textLabel.text = @"Text";
     cell.textLabel.text = [self.servers.serverList[indexPath.row] serverName];
     
+    NSNumber *savedServerID = [[GW2UserSettings sharedSettings] loadServerID];
+    if ([[self.servers.serverList[indexPath.row] serverID] isEqual:savedServerID]) {
+        cell.accessoryType =  UITableViewCellAccessoryCheckmark;
+    }
+    
     return cell;
 }
 
@@ -88,6 +93,7 @@ UITableViewDataSource
     if (self.navigationController != nil) {
         //TODO: implement checkmark properly
         [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+        [tableView reloadData];
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
