@@ -80,6 +80,8 @@ UITableViewDataSource
     NSNumber *savedServerID = [[GW2UserSettings sharedSettings] loadServerID];
     if ([[self.servers.serverList[indexPath.row] serverID] isEqual:savedServerID]) {
         cell.accessoryType =  UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
     return cell;
@@ -91,7 +93,6 @@ UITableViewDataSource
     [[GW2UserSettings sharedSettings] setUserServerID:selectedServerID];
     
     if (self.navigationController != nil) {
-        //TODO: implement checkmark properly
         [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
         [tableView reloadData];
     }
