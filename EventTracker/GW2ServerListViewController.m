@@ -77,6 +77,13 @@ UITableViewDataSource
     cell.textLabel.text = @"Text";
     cell.textLabel.text = [self.servers.serverList[indexPath.row] serverName];
     
+    NSNumber *savedServerID = [[GW2UserSettings sharedSettings] loadServerID];
+    if ([[self.servers.serverList[indexPath.row] serverID] isEqual:savedServerID]) {
+        cell.accessoryType =  UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
 }
 
@@ -85,7 +92,11 @@ UITableViewDataSource
     NSNumber *selectedServerID = [self.servers.serverList[indexPath.row] serverID];
     [[GW2UserSettings sharedSettings] setUserServerID:selectedServerID];
     
-    //TODO: handle viewController dismiss
+    if (self.navigationController != nil) {
+        [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+        [tableView reloadData];
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
