@@ -9,6 +9,7 @@
 #import "GW2MapListViewController.h"
 #import "GW2Map.h"
 #import "GW2MapList.h"
+#import "GW2Client.h"
 
 static NSString *kMapListIdentifier = @"mapListCell";
 
@@ -18,7 +19,9 @@ UICollectionViewDataSource,
 UICollectionViewDelegate
 >
 
+@property (weak, nonatomic) IBOutlet UICollectionView *mapListCollectionView;
 @property (strong, nonatomic) GW2MapList *mapList;
+@property (strong, nonatomic) GW2Client *client;
 
 @end
 
@@ -36,7 +39,20 @@ UICollectionViewDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    __weak typeof(self) weakself = self;
+    self.client = [GW2Client new];
+    [self.client fetchMapListWithCompletionHandler:^(NSData *recievedData){
+        NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:recievedData
+                                                             options:0
+                                                               error:NULL];
+        NSDictionary *jSONDict = @{@"allMaps": jSONArray};
+        weakself.mapList = [MTLJSONAdapter modelOfClass:[GW2MapList class]
+                                     fromJSONDictionary:jSONDict
+                                                  error:NULL];
+        
+        [weakself.mapListCollectionView reloadData];
+    }];
 }
 
 #pragma mark - UICollectionView methods
@@ -48,16 +64,13 @@ UICollectionViewDelegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 5; //TODO: implement
+    return [self.mapList.allMaps count];
 }
 
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kMapListIdentifier
                                                                            forIndexPath:indexPath];
-    
-    //TODO: implement
     
     return cell;
 }
