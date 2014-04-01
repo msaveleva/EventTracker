@@ -41,6 +41,11 @@ UICollectionViewDelegate
 
 #pragma mark - UICollectionView methods
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return 5; //TODO: implement
