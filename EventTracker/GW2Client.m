@@ -13,6 +13,7 @@
 static NSString * const serverListURL = @"https://api.guildwars2.com/v1/world_names.json?lang=en";
 static NSString * const mapListURL = @"https://api.guildwars2.com/v1/map_names.json?lang=en";
 static NSString * const eventListURL = @"https://api.guildwars2.com/v1/events.json?";
+static NSString *const eventNameListURL = @"https://api.guildwars2.com/v1/event_names.json?lang=en";
 
 @implementation GW2Client
 
@@ -35,6 +36,20 @@ static NSString * const eventListURL = @"https://api.guildwars2.com/v1/events.js
     NSURLSession *session = [NSURLSession sharedSession];
     
     [[session dataTaskWithURL:[NSURL URLWithString:mapListURL]
+            completionHandler:^(NSData *data,
+                                NSURLResponse *response,
+                                NSError *error){
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    completionHandler(data);
+                });
+            }] resume];
+}
+
+- (void)fetchEventNameListWithCompletionHandler:(void (^)(NSData *))completionHandler
+{
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    [[session dataTaskWithURL:[NSURL URLWithString:eventNameListURL]
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error){
