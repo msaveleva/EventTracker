@@ -11,7 +11,7 @@
 
 @interface GW2EventName : MTLModel
 
-@property (strong, nonatomic) NSNumber *eventID;
+@property (strong, nonatomic) NSString *eventID;
 @property (copy, nonatomic) NSString *eventName;
 
 @end

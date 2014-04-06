@@ -18,4 +18,18 @@
              };
 }
 
++ (NSValueTransformer *)eventIDJSONTransformer
+{
+    return [MTLValueTransformer reversibleTransformerWithBlock:^(NSString *stringFromJSON){
+        return stringFromJSON;
+    }];
+}
+
++ (NSValueTransformer *)eventNameJSONTransformer
+{
+    return [MTLValueTransformer reversibleTransformerWithBlock:^(NSString *stringFromJSON){
+        return stringFromJSON;
+    }];
+}
+
 @end

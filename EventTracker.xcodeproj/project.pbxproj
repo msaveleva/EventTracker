@@ -25,6 +25,7 @@
 		3F7A53FE18DB744900F77F88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53E018DB744900F77F88 /* UIKit.framework */; };
 		3F7A540618DB744900F77F88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A540418DB744900F77F88 /* InfoPlist.strings */; };
 		3F7A540818DB744900F77F88 /* EventTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A540718DB744900F77F88 /* EventTrackerTests.m */; };
+		3F97629E18F196BA00453C8C /* GW2EventNameList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F97629D18F196BA00453C8C /* GW2EventNameList.m */; };
 		3FE77CE018E4A32800F9DB04 /* GW2EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CDF18E4A32800F9DB04 /* GW2EventsViewController.m */; };
 		3FE77CE318E4A36C00F9DB04 /* GW2MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE218E4A36C00F9DB04 /* GW2MapViewController.m */; };
 		3FE77CE618E4A37D00F9DB04 /* GW2SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE518E4A37D00F9DB04 /* GW2SettingsViewController.m */; };
@@ -73,6 +74,8 @@
 		3F7A540318DB744900F77F88 /* EventTrackerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EventTrackerTests-Info.plist"; sourceTree = "<group>"; };
 		3F7A540518DB744900F77F88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F7A540718DB744900F77F88 /* EventTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventTrackerTests.m; sourceTree = "<group>"; };
+		3F97629C18F196BA00453C8C /* GW2EventNameList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventNameList.h; sourceTree = "<group>"; };
+		3F97629D18F196BA00453C8C /* GW2EventNameList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventNameList.m; sourceTree = "<group>"; };
 		3FE77CDE18E4A32800F9DB04 /* GW2EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventsViewController.h; sourceTree = "<group>"; };
 		3FE77CDF18E4A32800F9DB04 /* GW2EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventsViewController.m; sourceTree = "<group>"; };
 		3FE77CE118E4A36C00F9DB04 /* GW2MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2MapViewController.h; sourceTree = "<group>"; };
@@ -247,6 +250,8 @@
 				4C0390C818E6DD3400783F6E /* GW2EventList.m */,
 				4C0390D018E6E44500783F6E /* GW2EventName.h */,
 				4C0390D118E6E44500783F6E /* GW2EventName.m */,
+				3F97629C18F196BA00453C8C /* GW2EventNameList.h */,
+				3F97629D18F196BA00453C8C /* GW2EventNameList.m */,
 				4C0390CD18E6E01100783F6E /* GW2Map.h */,
 				4C0390CE18E6E01100783F6E /* GW2Map.m */,
 				3F21419818E86C6E00213CCC /* GW2MapList.h */,
@@ -389,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F21419718E85EA900213CCC /* GW2UserSettings.m in Sources */,
+				3F97629E18F196BA00453C8C /* GW2EventNameList.m in Sources */,
 				4C0390D218E6E44500783F6E /* GW2EventName.m in Sources */,
 				3FE77CE018E4A32800F9DB04 /* GW2EventsViewController.m in Sources */,
 				4C0390CC18E6DD3B00783F6E /* GW2ServerList.m in Sources */,
