@@ -18,4 +18,20 @@
              };
 }
 
++ (NSValueTransformer *)mapIDJSONTransformer
+{
+    return [MTLValueTransformer reversibleTransformerWithBlock:^(NSString *stringFromJSON){
+        NSNumberFormatter *formatter = [NSNumberFormatter new];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        return [formatter numberFromString:stringFromJSON];
+    }];
+}
+
++ (NSValueTransformer *)mapNameJSONTransformer
+{
+    return [MTLValueTransformer reversibleTransformerWithBlock:^(NSString *stringFromJSON){
+        return stringFromJSON;
+    }];
+}
+
 @end

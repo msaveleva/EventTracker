@@ -17,7 +17,7 @@
 
 @interface GW2EventsViewController ()
 
-@property (strong, nonatomic) GW2MapList *mapList;
+@property (strong, nonatomic) GW2MapList *maps;
 @property (strong, nonatomic) GW2EventList *eventList;
 @property (strong, nonatomic) GW2Client *client;
 
@@ -52,14 +52,14 @@
                                                              options:0
                                                                error:NULL];
         NSDictionary *jSONDict = @{@"allMaps": jSONArray};
-        weakself.mapList = [MTLJSONAdapter modelOfClass:[GW2MapList class]
+        weakself.maps = [MTLJSONAdapter modelOfClass:[GW2MapList class]
                                      fromJSONDictionary:jSONDict
                                                   error:NULL];
     }];
     
     NSNumber *serverID = [[GW2UserSettings sharedSettings] loadServerID];
     [self.client fetchEventListForServerWithID:serverID
-                                     mapWithID:self.mapList.allMaps[0]
+                                     mapWithID:self.maps.mapList[0]
                          withCompletionHandler:^(NSData* recievedData){
                              NSDictionary *jSONDict = [NSJSONSerialization JSONObjectWithData:recievedData
                                                                                       options:0

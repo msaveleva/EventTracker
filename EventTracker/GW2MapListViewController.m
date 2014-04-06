@@ -20,7 +20,7 @@ UICollectionViewDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView *mapListCollectionView;
-@property (strong, nonatomic) GW2MapList *mapList;
+@property (strong, nonatomic) GW2MapList *maps;
 @property (strong, nonatomic) GW2Client *client;
 
 @end
@@ -46,10 +46,10 @@ UICollectionViewDelegate
         NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:recievedData
                                                              options:0
                                                                error:NULL];
-        NSDictionary *jSONDict = @{@"allMaps": jSONArray};
-        weakself.mapList = [MTLJSONAdapter modelOfClass:[GW2MapList class]
-                                     fromJSONDictionary:jSONDict
-                                                  error:NULL];
+        NSDictionary *jSONDict = @{@"mapList": jSONArray};
+        weakself.maps = [MTLJSONAdapter modelOfClass:[GW2MapList class]
+                                  fromJSONDictionary:jSONDict
+                                               error:NULL];
         
         [weakself.mapListCollectionView reloadData];
     }];
@@ -64,13 +64,15 @@ UICollectionViewDelegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.mapList.allMaps count];
+    return [self.maps.mapList count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kMapListIdentifier
                                                                            forIndexPath:indexPath];
+    UILabel *label = (id)[cell viewWithTag:59];
+//    label.text = [self.mapList.allMaps[indexPath.row] mapName];
     
     return cell;
 }

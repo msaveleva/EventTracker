@@ -11,6 +11,6 @@
 
 @interface GW2MapList : MTLModel <MTLJSONSerializing>
 
-@property (strong, nonatomic) NSArray *allMaps;
+@property (strong, nonatomic) NSArray *mapList;
 
 @end
