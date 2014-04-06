@@ -17,7 +17,7 @@
     return @{@"mapList": @"mapList"};
 }
 
-+ (NSValueTransformer *)serverListJSONTransformer
++ (NSValueTransformer *)mapListJSONTransformer
 {
     return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[GW2Map class]];
 }

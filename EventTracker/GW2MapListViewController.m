@@ -72,7 +72,7 @@ UICollectionViewDelegate
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kMapListIdentifier
                                                                            forIndexPath:indexPath];
     UILabel *label = (id)[cell viewWithTag:59];
-//    label.text = [self.mapList.allMaps[indexPath.row] mapName];
+    label.text = [self.maps.mapList[indexPath.row] mapName];
     
     return cell;
 }
