@@ -13,7 +13,7 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
-    return @{@"allEvents": @"events"};
+    return @{@"eventList": @"eventList"};
 }
 
 + (NSValueTransformer *)serverListJSONTransformer

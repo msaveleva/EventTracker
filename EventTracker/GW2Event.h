@@ -10,8 +10,8 @@
 #import <Mantle.h>
 
 typedef NS_ENUM(NSUInteger, GW2EventStatus) {
-    GW2EventStatusActive = 0, //The event is running now.
-    GW2EventStatusInactive, //The event is not running.
+    GW2EventStatusInactive = 0, //The event is not running.
+    GW2EventStatusActive, //The event is running now.
     GW2EventStatusSuccess, //The event has succeeded.
     GW2EventStatusFail, //The event has failed.
     GW2EventStatusWarmup, //The event is inactive and waiting for certain criteria to be met before becoming Active.

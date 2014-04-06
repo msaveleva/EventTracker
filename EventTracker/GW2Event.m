@@ -20,4 +20,39 @@
              };
 }
 
++ (NSValueTransformer *)worldIDJSONTransformer
+{
+    return [MTLValueTransformer reversibleTransformerWithBlock:^(NSString *stringFromJSON){
+        NSNumberFormatter *formatter = [NSNumberFormatter new];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        return [formatter numberFromString:stringFromJSON];
+    }];
+}
+
++ (NSValueTransformer *)mapIDJSONTransformer
+{
+    return [MTLValueTransformer reversibleTransformerWithBlock:^(NSString *stringFromJSON){
+        NSNumberFormatter *formatter = [NSNumberFormatter new];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        return [formatter numberFromString:stringFromJSON];
+    }];
+}
+
++ (NSValueTransformer *)eventIDJSONTransformer
+{
+    return [MTLValueTransformer reversibleTransformerWithBlock:^(NSString *stringFromJSON){
+        return stringFromJSON;
+    }];
+}
+
++ (NSValueTransformer *)eventStateJSONTransformer
+{
+    return [MTLValueTransformer mtl_valueMappingTransformerWithDictionary:@{@"Inactive": @(GW2EventStatusInactive),
+                                                                            @"Active" : @(GW2EventStatusActive),
+                                                                            @"Success" : @(GW2EventStatusSuccess),
+                                                                            @"Fail" : @(GW2EventStatusFail),
+                                                                            @"Warmup" : @(GW2EventStatusWarmup),
+                                                                            @"Preparation" : @(GW2EventStatusPreparation)}];
+}
+
 @end
