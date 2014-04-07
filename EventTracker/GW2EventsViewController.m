@@ -20,6 +20,8 @@
 
 @property (strong, nonatomic) GW2EventList *events;
 @property (strong, nonatomic) GW2EventNameList *eventNames;
+@property (strong, nonatomic) NSMutableArray *activeEvents;
+@property (strong, nonatomic) NSMutableArray *activeEventNames;
 @property (strong, nonatomic) GW2Client *client;
 
 @end
@@ -57,6 +59,8 @@
         weakself.eventNames = [MTLJSONAdapter modelOfClass:[GW2EventNameList class]
                                         fromJSONDictionary:jSONDict
                                                      error:NULL];
+        
+        [self sortActiveEvents];
     }];
     
     //fetching events for map and server
@@ -73,10 +77,16 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)sortActiveEvents
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.activeEvents = [NSMutableArray array];
+    self.activeEventNames = [NSMutableArray array];
+    
+    for (GW2Event *event in self.events.eventList) {
+        if (event.eventState == GW2EventStatusActive) {
+            [self.activeEvents addObject:event];
+        }
+    }
 }
 
 @end

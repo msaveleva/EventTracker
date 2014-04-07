@@ -23,6 +23,6 @@ typedef NS_ENUM(NSInteger, GW2EventStatus) {
 @property (strong, nonatomic) NSNumber *worldID;
 @property (strong, nonatomic) NSNumber *mapID;
 @property (strong, nonatomic) NSString *eventID;
-@property (nonatomic) NSInteger eventState;
+@property (nonatomic) GW2EventStatus eventState;
 
 @end
