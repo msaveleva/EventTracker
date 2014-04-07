@@ -85,6 +85,14 @@
     for (GW2Event *event in self.events.eventList) {
         if (event.eventState == GW2EventStatusActive) {
             [self.activeEvents addObject:event];
+            
+            for (int i = 0; i < [self.eventNames.eventNameList count]; i++) {
+                GW2EventName *eventName = self.eventNames.eventNameList[i];
+                if ([event.eventID isEqualToString:eventName.eventID]) {
+                    [self.activeEventNames addObject:eventName];
+                    break;
+                }
+            }
         }
     }
 }
