@@ -23,18 +23,14 @@
 + (NSValueTransformer *)worldIDJSONTransformer
 {
     return [MTLValueTransformer reversibleTransformerWithBlock:^(NSString *stringFromJSON){
-        NSNumberFormatter *formatter = [NSNumberFormatter new];
-        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        return [formatter numberFromString:stringFromJSON];
+        return stringFromJSON;
     }];
 }
 
 + (NSValueTransformer *)mapIDJSONTransformer
 {
     return [MTLValueTransformer reversibleTransformerWithBlock:^(NSString *stringFromJSON){
-        NSNumberFormatter *formatter = [NSNumberFormatter new];
-        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        return [formatter numberFromString:stringFromJSON];
+        return stringFromJSON;
     }];
 }
 
