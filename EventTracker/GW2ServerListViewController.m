@@ -48,7 +48,7 @@ UITableViewDataSource
         NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:recievedData
                                                              options:0
                                                                error:NULL];
-        NSDictionary *jSONDict = @{@"serverList": jSONArray};
+        NSDictionary *jSONDict = @{@"eventNameList": jSONArray};
         weakself.servers = [MTLJSONAdapter modelOfClass:[GW2ServerList class]
                                      fromJSONDictionary:jSONDict
                                                   error:NULL];

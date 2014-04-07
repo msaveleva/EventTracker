@@ -47,9 +47,20 @@
     
     self.client = [GW2Client new];
     
+    //fetching event name list
+    __weak typeof(self) weakself = self;
+    [self.client fetchEventNameListWithCompletionHandler:^(NSData *recievedData){
+        NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:recievedData
+                                                             options:0
+                                                               error:NULL];
+        NSDictionary *jSONDict = @{@"eventNameList": jSONArray};
+        weakself.eventNameList = [MTLJSONAdapter modelOfClass:[GW2EventNameList class]
+                                           fromJSONDictionary:jSONDict
+                                                        error:NULL];
+    }];
+    
     //fetching events for map and server
     NSNumber *serverID = [[GW2UserSettings sharedSettings] loadServerID];
-    __weak typeof(self) weakself = self;
     [self.client fetchEventListForServerWithID:serverID
                                      mapWithID:self.selectedMap.mapID
                          withCompletionHandler:^(NSData* recievedData){

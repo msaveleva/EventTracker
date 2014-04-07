@@ -9,7 +9,7 @@
 #import "MTLModel.h"
 #import <Mantle.h>
 
-@interface GW2EventNameList : MTLModel
+@interface GW2EventNameList : MTLModel <MTLJSONSerializing>
 
 @property (strong, nonatomic) NSArray *eventNameList;
 

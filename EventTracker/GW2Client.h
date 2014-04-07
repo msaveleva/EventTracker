@@ -12,6 +12,7 @@
 
 - (void)fetchSeverListWithCompletionHandler:(void (^)(NSData *data))completionHandler;
 - (void)fetchMapListWithCompletionHandler:(void (^)(NSData *data))completionHandler;
+- (void)fetchEventNameListWithCompletionHandler:(void (^)(NSData *))completionHandler;
 
 - (void)fetchEventListForServerWithID:(NSNumber *)serverID
                             mapWithID:(NSNumber *)mapID
