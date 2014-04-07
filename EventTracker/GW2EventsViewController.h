@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class GW2Map;
+
 @interface GW2EventsViewController : UIViewController
+
+@property (strong, nonatomic) GW2Map *selectedMap;
 
 @end

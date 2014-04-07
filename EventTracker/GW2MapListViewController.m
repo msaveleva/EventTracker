@@ -10,6 +10,7 @@
 #import "GW2Map.h"
 #import "GW2MapList.h"
 #import "GW2Client.h"
+#import "GW2EventsViewController.h"
 
 static NSString *kMapListIdentifier = @"mapListCell";
 
@@ -21,6 +22,7 @@ UICollectionViewDelegate
 
 @property (weak, nonatomic) IBOutlet UICollectionView *mapListCollectionView;
 @property (strong, nonatomic) GW2MapList *maps;
+@property (strong, nonatomic) GW2Map *selectedMap;
 @property (strong, nonatomic) GW2Client *client;
 
 @end
@@ -75,6 +77,14 @@ UICollectionViewDelegate
     label.text = [self.maps.mapList[indexPath.row] mapName];
     
     return cell;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    GW2EventsViewController *destinationVC = (id)segue.destinationViewController;
+    destinationVC.selectedMap = self.selectedMap;
 }
 
 @end
