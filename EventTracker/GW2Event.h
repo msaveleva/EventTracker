@@ -9,7 +9,7 @@
 #import "MTLModel.h"
 #import <Mantle.h>
 
-typedef NS_ENUM(NSUInteger, GW2EventStatus) {
+typedef NS_ENUM(NSInteger, GW2EventStatus) {
     GW2EventStatusInactive = 0, //The event is not running.
     GW2EventStatusActive, //The event is running now.
     GW2EventStatusSuccess, //The event has succeeded.
@@ -23,6 +23,6 @@ typedef NS_ENUM(NSUInteger, GW2EventStatus) {
 @property (strong, nonatomic) NSNumber *worldID;
 @property (strong, nonatomic) NSNumber *mapID;
 @property (strong, nonatomic) NSString *eventID;
-@property (nonatomic) NSUInteger eventState;
+@property (nonatomic) NSInteger eventState;
 
 @end
