@@ -16,7 +16,7 @@
     return @{@"eventList": @"events"};
 }
 
-+ (NSValueTransformer *)serverListJSONTransformer
++ (NSValueTransformer *)eventListJSONTransformer
 {
     return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[GW2Event class]];
 }

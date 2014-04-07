@@ -13,10 +13,10 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{
-             @"worldID": @"world_id",
-             @"mapID": @"map_id",
              @"eventID": @"event_id",
-             @"eventState": @"eventState",
+             @"mapID": @"map_id",
+             @"eventState": @"state",
+             @"worldID": @"world_id",
              };
 }
 
