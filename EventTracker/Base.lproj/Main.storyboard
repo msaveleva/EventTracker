@@ -89,6 +89,9 @@
                                             <constraint firstItem="XQC-hh-730" firstAttribute="top" secondItem="Q1P-xW-liA" secondAttribute="top" constant="14" id="Wvv-Fc-oKd"/>
                                             <constraint firstItem="XQC-hh-730" firstAttribute="leading" secondItem="Q1P-xW-liA" secondAttribute="leading" constant="11" id="rpu-yI-Vmw"/>
                                         </constraints>
+                                        <connections>
+                                            <segue destination="vXZ-lx-hvc" kind="push" identifier="showEventForMap" id="EcD-rh-9Jq"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

@@ -13,7 +13,7 @@
 #import "GW2Client.h"
 #import "GW2Event.h"
 #import "GW2EventList.h"
-#import "GW2EventName.m"
+#import "GW2EventName.h"
 #import "GW2EventNameList.h"
 
 @interface GW2EventsViewController ()

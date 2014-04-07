@@ -13,6 +13,7 @@
 #import "GW2EventsViewController.h"
 
 static NSString *kMapListIdentifier = @"mapListCell";
+static NSString *kSegueIdentifier = @"showEventForMap";
 
 @interface GW2MapListViewController ()
 <
@@ -22,7 +23,6 @@ UICollectionViewDelegate
 
 @property (weak, nonatomic) IBOutlet UICollectionView *mapListCollectionView;
 @property (strong, nonatomic) GW2MapList *maps;
-@property (strong, nonatomic) GW2Map *selectedMap;
 @property (strong, nonatomic) GW2Client *client;
 
 @end
@@ -83,8 +83,11 @@ UICollectionViewDelegate
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    GW2EventsViewController *destinationVC = (id)segue.destinationViewController;
-    destinationVC.selectedMap = self.selectedMap;
+    if ([segue.identifier isEqualToString:kSegueIdentifier]) {
+        NSIndexPath *indexpath = [[self.mapListCollectionView indexPathsForSelectedItems] firstObject];
+        GW2EventsViewController *destinationVC = (id)segue.destinationViewController;
+        destinationVC.selectedMap = self.maps.mapList[indexpath.row];
+    }
 }
 
 @end
