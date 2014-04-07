@@ -16,8 +16,11 @@
 #import "GW2EventName.h"
 #import "GW2EventNameList.h"
 
+static NSString *kEvemtListCellIdentifier = @"eventListCell";
+
 @interface GW2EventsViewController ()
 
+@property (weak, nonatomic) IBOutlet UITableView *eventLIstTableView;
 @property (strong, nonatomic) GW2EventList *events;
 @property (strong, nonatomic) GW2EventNameList *eventNames;
 @property (strong, nonatomic) NSMutableArray *activeEvents;
@@ -60,7 +63,8 @@
                                         fromJSONDictionary:jSONDict
                                                      error:NULL];
         
-        [self sortActiveEvents];
+        [weakself sortActiveEvents];
+        [weakself.eventLIstTableView reloadData];
     }];
     
     //fetching events for map and server
@@ -95,6 +99,28 @@
             }
         }
     }
+}
+
+#pragma mark - TableView methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.activeEvents count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kEvemtListCellIdentifier
+                                                            forIndexPath:indexPath];
+    GW2EventName *eventName = self.activeEventNames[indexPath.row];
+    cell.textLabel.text = eventName.eventName;
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //TODO: handle selection
 }
 
 @end
