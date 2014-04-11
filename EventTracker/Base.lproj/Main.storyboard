@@ -71,6 +71,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="zbg-9e-NxY"/>
+                    <connections>
+                        <outlet property="wikiWebView" destination="WIs-Vi-Vbw" id="q1e-G8-RQm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p1l-x4-rjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
