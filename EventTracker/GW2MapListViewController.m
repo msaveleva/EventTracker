@@ -12,8 +12,8 @@
 #import "GW2Client.h"
 #import "GW2EventsViewController.h"
 
-static NSString *kMapListIdentifier = @"mapListCell";
-static NSString *kSegueIdentifier = @"showEventForMap";
+static NSString * const kMapListIdentifier = @"mapListCell";
+static NSString * const kSegueIdentifier = @"showEventForMap";
 
 @interface GW2MapListViewController ()
 <

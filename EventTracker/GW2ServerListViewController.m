@@ -12,7 +12,7 @@
 #import "GW2Client.h"
 #import "GW2UserSettings.h"
 
-static NSString *kServerListCellIdentifier = @"serverListCellIdentifier";
+static NSString * const kServerListCellIdentifier = @"serverListCellIdentifier";
 
 @interface GW2ServerListViewController ()
 <

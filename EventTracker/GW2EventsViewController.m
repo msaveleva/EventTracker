@@ -17,7 +17,7 @@
 #import "GW2EventNameList.h"
 #import "GW2WikiViewController.h"
 
-static NSString *kEvemtListCellIdentifier = @"eventListCell";
+static NSString * const kEvemtListCellIdentifier = @"eventListCell";
 static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 
 @interface GW2EventsViewController ()

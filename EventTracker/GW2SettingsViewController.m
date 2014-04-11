@@ -9,7 +9,7 @@
 #import "GW2SettingsViewController.h"
 #import "GW2ServerListViewController.h"
 
-static NSString *kCellIdentifier = @"settingsCell";
+static NSString * const kCellIdentifier = @"settingsCell";
 
 @interface GW2SettingsViewController ()
 <
