@@ -127,7 +127,8 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     if ([segue.identifier isEqualToString:kShowWikiForEvent]) {
         NSIndexPath *indexpath = [self.eventListTableView indexPathForSelectedRow];
         GW2WikiViewController *destinationVC = (id)segue.destinationViewController;
-        destinationVC.eventName = self.eventNames.eventNameList[indexpath.row];
+        NSString *selectedEventName = [self.eventNames.eventNameList[indexpath.row] eventName];
+        destinationVC.eventName = selectedEventName;
     }
 }
 
