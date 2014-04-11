@@ -15,12 +15,14 @@
 #import "GW2EventList.h"
 #import "GW2EventName.h"
 #import "GW2EventNameList.h"
+#import "GW2WikiViewController.h"
 
 static NSString *kEvemtListCellIdentifier = @"eventListCell";
+static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 
 @interface GW2EventsViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *eventLIstTableView;
+@property (weak, nonatomic) IBOutlet UITableView *eventListTableView;
 @property (strong, nonatomic) GW2EventList *events;
 @property (strong, nonatomic) GW2EventNameList *eventNames;
 @property (strong, nonatomic) NSMutableArray *activeEvents;
@@ -64,7 +66,7 @@ static NSString *kEvemtListCellIdentifier = @"eventListCell";
                                                      error:NULL];
         
         [weakself sortActiveEvents];
-        [weakself.eventLIstTableView reloadData];
+        [weakself.eventListTableView reloadData];
     }];
     
     //fetching events for map and server
@@ -118,9 +120,15 @@ static NSString *kEvemtListCellIdentifier = @"eventListCell";
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //TODO: handle selection
+    if ([segue.identifier isEqualToString:kShowWikiForEvent]) {
+        NSIndexPath *indexpath = [self.eventListTableView indexPathForSelectedRow];
+        GW2WikiViewController *destinationVC = (id)segue.destinationViewController;
+        destinationVC.eventName = self.eventNames.eventNameList[indexpath.row];
+    }
 }
 
 @end

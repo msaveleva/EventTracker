@@ -28,6 +28,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="yFy-Ir-HKr" kind="push" identifier="showWikiForEvent" id="9Q0-pp-afl"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -40,12 +43,38 @@
                     </view>
                     <navigationItem key="navigationItem" id="XSW-Fl-pd8"/>
                     <connections>
-                        <outlet property="eventLIstTableView" destination="e20-x5-X5p" id="F3g-zd-9yt"/>
+                        <outlet property="eventListTableView" destination="e20-x5-X5p" id="uPU-dn-4rA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1737" y="657"/>
+        </scene>
+        <!--Wiki View Controller-->
+        <scene sceneID="CKs-Xu-l5o">
+            <objects>
+                <viewController id="yFy-Ir-HKr" customClass="GW2WikiViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b3h-P9-gvZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="G5R-Ac-mfm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R31-ck-Baq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WIs-Vi-Vbw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zbg-9e-NxY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p1l-x4-rjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2188" y="657"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hNB-Aq-0Fm">
