@@ -90,8 +90,8 @@ static NSString * const eventNameListURL = @"https://api.guildwars2.com/v1/event
                                      [NSString stringWithFormat:@"world_id=%ld",
                                       (long)[serverID integerValue]]];
     NSString *eventListWithEventID = [eventListWithServer stringByAppendingString:
-                                      [NSString stringWithFormat:@"&event_id=%ld",
-                                       (long)[eventID integerValue]]];
+                                      [NSString stringWithFormat:@"&event_id=%@",
+                                       eventID]];
     
     NSURLSession *session = [NSURLSession sharedSession];
     
