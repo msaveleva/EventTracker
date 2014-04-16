@@ -27,6 +27,7 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 @property (strong, nonatomic) GW2EventNameList *eventNames;
 @property (strong, nonatomic) NSMutableArray *activeEvents;
 @property (strong, nonatomic) NSMutableArray *activeEventNames;
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -52,6 +53,12 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
         [self presentViewController:viewController animated:NO completion:nil];
     }
     
+    self.activityIndicator =
+        [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activityIndicator.center = self.view.center;
+    [self.view addSubview:self.activityIndicator];
+    [self.activityIndicator startAnimating];
+    
     GW2EventManager *eventManager = [GW2EventManager sharedManager];
     [eventManager recieveEventListFromManagerForMap:self.selectedMap withCompletion:^(GW2EventList *eventList){
         self.events = eventList;
@@ -62,6 +69,8 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
         
         [self sortActiveEvents];
         [self.eventListTableView reloadData];
+        
+        [self.activityIndicator stopAnimating];
     }];
 }
 
