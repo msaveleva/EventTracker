@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class GW2Map;
 @class GW2EventList;
 @class GW2EventNameList;
 
 @interface GW2EventManager : NSObject
 
-@property (strong, nonatomic) GW2EventList *eventListFromManager;
-@property (strong, nonatomic) GW2EventNameList *eventNameListFromManager;
++ (instancetype)sharedManager;
 
-+ (instancetype)sharedSettings;
+- (void)recieveEventListFromManagerForMap:(GW2Map *)map withCompletion:(void (^)(GW2EventList *eventList))completionHandler;
+- (void)recieveEventNameListFromManager:(void (^)(GW2EventNameList *eventNameList))completionHandler;
 
 @end

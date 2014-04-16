@@ -16,6 +16,7 @@
 #import "GW2EventName.h"
 #import "GW2EventNameList.h"
 #import "GW2WikiViewController.h"
+#import "GW2EventManager.h"
 
 static NSString * const kEvemtListCellIdentifier = @"eventListCell";
 static NSString * const kShowWikiForEvent = @"showWikiForEvent";
@@ -56,17 +57,24 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     
     //fetching event name list
     __weak typeof(self) weakself = self;
-    [self.client fetchEventNameListWithCompletionHandler:^(NSData *recievedData){
-        NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:recievedData
-                                                             options:0
-                                                               error:NULL];
-        NSDictionary *jSONDict = @{@"eventNameList": jSONArray};
-        weakself.eventNames = [MTLJSONAdapter modelOfClass:[GW2EventNameList class]
-                                        fromJSONDictionary:jSONDict
-                                                     error:NULL];
+//    [self.client fetchEventNameListWithCompletionHandler:^(NSData *recievedData){
+//        NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:recievedData
+//                                                             options:0
+//                                                               error:NULL];
+//        NSDictionary *jSONDict = @{@"eventNameList": jSONArray};
+//        weakself.eventNames = [MTLJSONAdapter modelOfClass:[GW2EventNameList class]
+//                                        fromJSONDictionary:jSONDict
+//                                                     error:NULL];
+//        
+//        [weakself sortActiveEvents];
+//        [weakself.eventListTableView reloadData];
+//    }];
+    GW2EventManager *eventManager = [GW2EventManager sharedManager];
+    [eventManager recieveEventNameListFromManager:^(GW2EventNameList *eventNameList){
+        self.eventNames = eventNameList;
         
-        [weakself sortActiveEvents];
-        [weakself.eventListTableView reloadData];
+        [self sortActiveEvents];
+        [self.eventListTableView reloadData];
     }];
     
     //fetching events for map and server
