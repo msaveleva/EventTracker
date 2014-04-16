@@ -28,9 +28,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="yFy-Ir-HKr" kind="push" identifier="showWikiForEvent" id="9Q0-pp-afl"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -59,7 +56,7 @@
         <!--Wiki View Controller-->
         <scene sceneID="CKs-Xu-l5o">
             <objects>
-                <viewController id="yFy-Ir-HKr" customClass="GW2WikiViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="showWikiForEvent" id="yFy-Ir-HKr" customClass="GW2WikiViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b3h-P9-gvZ"/>
                         <viewControllerLayoutGuide type="bottom" id="G5R-Ac-mfm"/>
@@ -71,7 +68,10 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIs-Vi-Vbw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.81568444293478259" green="0.81568444293478259" blue="0.81568444293478259" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yFy-Ir-HKr" id="Nm3-Ng-q9t"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

@@ -11,6 +11,10 @@
 @class GW2Map;
 
 @interface GW2EventsViewController : UIViewController
+<
+UITableViewDataSource,
+UITableViewDelegate
+>
 
 @property (strong, nonatomic) GW2Map *selectedMap;
 

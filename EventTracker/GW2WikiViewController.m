@@ -13,6 +13,8 @@ static NSString * const kGW2WikiUrl = @"http://wiki.guildwars2.com/wiki/";
 @interface GW2WikiViewController ()
 
 @property (weak, nonatomic) IBOutlet UIWebView *wikiWebView;
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
+
 
 @end
 
@@ -31,6 +33,11 @@ static NSString * const kGW2WikiUrl = @"http://wiki.guildwars2.com/wiki/";
 {
     [super viewDidLoad];
     
+    self.activityIndicator =
+    [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityIndicator.center = self.view.center;
+    [self.wikiWebView addSubview:self.activityIndicator];
+    
     NSURL *url = [NSURL URLWithString:[self getUrlString]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.wikiWebView loadRequest:request];
@@ -46,6 +53,24 @@ static NSString * const kGW2WikiUrl = @"http://wiki.guildwars2.com/wiki/";
     resultString = [kGW2WikiUrl stringByAppendingString:resultString];
     
     return resultString;
+}
+
+#pragma mark - webView delegate methods
+
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    [self.activityIndicator startAnimating];
+    return YES;
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self.activityIndicator stopAnimating];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self.activityIndicator stopAnimating];
 }
 
 @end

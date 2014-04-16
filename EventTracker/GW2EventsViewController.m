@@ -23,10 +23,13 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 @interface GW2EventsViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *eventListTableView;
+@property (retain, nonatomic) UIBarButtonItem *doneBarButtonItem;
+@property (retain, nonatomic) UIBarButtonItem *addBarButtonItem;
 @property (strong, nonatomic) GW2EventList *events;
 @property (strong, nonatomic) GW2EventNameList *eventNames;
 @property (strong, nonatomic) NSMutableArray *activeEvents;
 @property (strong, nonatomic) NSMutableArray *activeEventNames;
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -45,6 +48,20 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 {
     [super viewDidLoad];
     
+    self.eventListTableView.allowsSelectionDuringEditing = YES;
+    self.eventListTableView.allowsMultipleSelectionDuringEditing = YES;
+    
+    //custom barButtonItems
+    self.doneBarButtonItem =
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                      target:self
+                                                      action:@selector(finishAddingToFavorites)];
+    self.addBarButtonItem =
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose
+                                                      target:self
+                                                      action:@selector(addToFavorites)];
+    self.navigationItem.rightBarButtonItem = self.addBarButtonItem;
+    
     //show GW2ServerListViewController if server was not selected
     if ([[GW2UserSettings sharedSettings] loadServerID] == nil) {
         GW2ServerListViewController *viewController =
@@ -52,6 +69,14 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
         [self presentViewController:viewController animated:NO completion:nil];
     }
     
+    //activity indicator implementation
+    self.activityIndicator =
+        [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityIndicator.center = self.view.center;
+    [self.view addSubview:self.activityIndicator];
+    [self.activityIndicator startAnimating];
+    
+    //get data for tableView
     GW2EventManager *eventManager = [GW2EventManager sharedManager];
     [eventManager recieveEventListFromManagerForMap:self.selectedMap withCompletion:^(GW2EventList *eventList){
         self.events = eventList;
@@ -62,6 +87,8 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
         
         [self sortActiveEvents];
         [self.eventListTableView reloadData];
+        
+        [self.activityIndicator stopAnimating];
     }];
 }
 
@@ -85,6 +112,16 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     }
 }
 
+- (void)addToFavorites{
+    self.navigationItem.rightBarButtonItem = self.doneBarButtonItem;
+    [self.eventListTableView setEditing:YES animated:YES];
+}
+
+- (void)finishAddingToFavorites{
+    self.navigationItem.rightBarButtonItem = self.addBarButtonItem;
+    [self.eventListTableView setEditing:NO animated:YES];
+}
+
 #pragma mark - TableView methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -102,16 +139,48 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     return cell;
 }
 
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([segue.identifier isEqualToString:kShowWikiForEvent]) {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.isEditing) {
+        //TODO: handle selection
+        NSLog(@"selected!");
+    } else {
         NSIndexPath *indexpath = [self.eventListTableView indexPathForSelectedRow];
-        GW2WikiViewController *destinationVC = (id)segue.destinationViewController;
+        GW2WikiViewController *destinationVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kShowWikiForEvent];
         NSString *selectedEventName = [self.eventNames.eventNameList[indexpath.row] eventName];
         destinationVC.eventName = selectedEventName;
+        [self.navigationController pushViewController:destinationVC animated:YES];
     }
 }
+
+#pragma mark - TableView editing methods
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleInsert;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //select cells?
+}
+
+//#pragma mark - Navigation
+//
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([segue.identifier isEqualToString:kShowWikiForEvent]) {
+//        NSIndexPath *indexpath = [self.eventListTableView indexPathForSelectedRow];
+//        GW2WikiViewController *destinationVC = (id)segue.destinationViewController;
+//        NSString *selectedEventName = [self.eventNames.eventNameList[indexpath.row] eventName];
+//        destinationVC.eventName = selectedEventName;
+//    }
+//}
 
 @end
