@@ -49,6 +49,7 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     [super viewDidLoad];
     
     self.eventListTableView.allowsSelectionDuringEditing = YES;
+    self.eventListTableView.allowsMultipleSelectionDuringEditing = YES;
     
     //custom barButtonItems
     self.doneBarButtonItem =
@@ -144,6 +145,12 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     if (cell.isEditing) {
         //TODO: handle selection
         NSLog(@"selected!");
+    } else {
+        NSIndexPath *indexpath = [self.eventListTableView indexPathForSelectedRow];
+        GW2WikiViewController *destinationVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kShowWikiForEvent];
+        NSString *selectedEventName = [self.eventNames.eventNameList[indexpath.row] eventName];
+        destinationVC.eventName = selectedEventName;
+        [self.navigationController pushViewController:destinationVC animated:YES];
     }
 }
 
@@ -164,16 +171,16 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     //select cells?
 }
 
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:kShowWikiForEvent]) {
-        NSIndexPath *indexpath = [self.eventListTableView indexPathForSelectedRow];
-        GW2WikiViewController *destinationVC = (id)segue.destinationViewController;
-        NSString *selectedEventName = [self.eventNames.eventNameList[indexpath.row] eventName];
-        destinationVC.eventName = selectedEventName;
-    }
-}
+//#pragma mark - Navigation
+//
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([segue.identifier isEqualToString:kShowWikiForEvent]) {
+//        NSIndexPath *indexpath = [self.eventListTableView indexPathForSelectedRow];
+//        GW2WikiViewController *destinationVC = (id)segue.destinationViewController;
+//        NSString *selectedEventName = [self.eventNames.eventNameList[indexpath.row] eventName];
+//        destinationVC.eventName = selectedEventName;
+//    }
+//}
 
 @end
