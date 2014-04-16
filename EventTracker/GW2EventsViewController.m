@@ -90,8 +90,6 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
         
         [self.activityIndicator stopAnimating];
     }];
-    
-    NSLog(@"Favorites: %@", [[GW2UserSettings sharedSettings] loadUserFavoriteEventIDs]);
 }
 
 - (void)sortActiveEvents

@@ -17,5 +17,8 @@
 - (void)fetchEventListForServerWithID:(NSNumber *)serverID
                             mapWithID:(NSNumber *)mapID
                 withCompletionHandler:(void (^)(NSData *data))completionHandler;
+- (void)fetchEventDetailsForServerWithID:(NSNumber *)serverID
+                                 eventID:(NSString *)eventID
+                   withCompletionHandler:(void (^)(NSData *))completionHandler;
 
 @end

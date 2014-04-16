@@ -13,7 +13,7 @@
 static NSString * const serverListURL = @"https://api.guildwars2.com/v1/world_names.json?lang=en";
 static NSString * const mapListURL = @"https://api.guildwars2.com/v1/map_names.json?lang=en";
 static NSString * const eventListURL = @"https://api.guildwars2.com/v1/events.json?";
-static NSString *const eventNameListURL = @"https://api.guildwars2.com/v1/event_names.json?lang=en";
+static NSString * const eventNameListURL = @"https://api.guildwars2.com/v1/event_names.json?lang=en";
 
 @implementation GW2Client
 
@@ -73,6 +73,29 @@ static NSString *const eventNameListURL = @"https://api.guildwars2.com/v1/event_
     NSURLSession *session = [NSURLSession sharedSession];
     
     [[session dataTaskWithURL:[NSURL URLWithString:eventListWithMap]
+            completionHandler:^(NSData *data,
+                                NSURLResponse *response,
+                                NSError *error){
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    completionHandler(data);
+                });
+            }] resume];
+}
+
+- (void)fetchEventDetailsForServerWithID:(NSNumber *)serverID
+                                 eventID:(NSString *)eventID
+                   withCompletionHandler:(void (^)(NSData *))completionHandler
+{
+    NSString *eventListWithServer = [eventListURL stringByAppendingString:
+                                     [NSString stringWithFormat:@"world_id=%ld",
+                                      (long)[serverID integerValue]]];
+    NSString *eventListWithEventID = [eventListWithServer stringByAppendingString:
+                                      [NSString stringWithFormat:@"&event_id=%ld",
+                                       (long)[eventID integerValue]]];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    [[session dataTaskWithURL:[NSURL URLWithString:eventListWithEventID]
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error){

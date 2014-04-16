@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface GW2FavoritesViewController : UIViewController
+<
+UITableViewDataSource,
+UITableViewDelegate
+>
 
 @end
