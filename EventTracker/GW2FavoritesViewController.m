@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Maria Saveleva. All rights reserved.
 //
 
-#import "GW2MapViewController.h"
+#import "GW2FavoritesViewController.h"
 
-@interface GW2MapViewController ()
+@interface GW2FavoritesViewController ()
 
 @end
 
-@implementation GW2MapViewController
+@implementation GW2FavoritesViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

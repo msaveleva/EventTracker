@@ -28,7 +28,7 @@
 		3F7A540818DB744900F77F88 /* EventTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A540718DB744900F77F88 /* EventTrackerTests.m */; };
 		3F97629E18F196BA00453C8C /* GW2EventNameList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F97629D18F196BA00453C8C /* GW2EventNameList.m */; };
 		3FE77CE018E4A32800F9DB04 /* GW2EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CDF18E4A32800F9DB04 /* GW2EventsViewController.m */; };
-		3FE77CE318E4A36C00F9DB04 /* GW2MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE218E4A36C00F9DB04 /* GW2MapViewController.m */; };
+		3FE77CE318E4A36C00F9DB04 /* GW2FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE218E4A36C00F9DB04 /* GW2FavoritesViewController.m */; };
 		3FE77CE618E4A37D00F9DB04 /* GW2SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE518E4A37D00F9DB04 /* GW2SettingsViewController.m */; };
 		3FE77CE918E4A49500F9DB04 /* GW2ServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE818E4A49500F9DB04 /* GW2ServerListViewController.m */; };
 		4C0390C318E6DD1800783F6E /* GW2Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0390C218E6DD1800783F6E /* GW2Server.m */; };
@@ -82,8 +82,8 @@
 		3F97629D18F196BA00453C8C /* GW2EventNameList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventNameList.m; sourceTree = "<group>"; };
 		3FE77CDE18E4A32800F9DB04 /* GW2EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventsViewController.h; sourceTree = "<group>"; };
 		3FE77CDF18E4A32800F9DB04 /* GW2EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventsViewController.m; sourceTree = "<group>"; };
-		3FE77CE118E4A36C00F9DB04 /* GW2MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2MapViewController.h; sourceTree = "<group>"; };
-		3FE77CE218E4A36C00F9DB04 /* GW2MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2MapViewController.m; sourceTree = "<group>"; };
+		3FE77CE118E4A36C00F9DB04 /* GW2FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2FavoritesViewController.h; sourceTree = "<group>"; };
+		3FE77CE218E4A36C00F9DB04 /* GW2FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2FavoritesViewController.m; sourceTree = "<group>"; };
 		3FE77CE418E4A37D00F9DB04 /* GW2SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2SettingsViewController.h; sourceTree = "<group>"; };
 		3FE77CE518E4A37D00F9DB04 /* GW2SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2SettingsViewController.m; sourceTree = "<group>"; };
 		3FE77CE718E4A49500F9DB04 /* GW2ServerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2ServerListViewController.h; sourceTree = "<group>"; };
@@ -231,8 +231,8 @@
 			children = (
 				3FE77CDE18E4A32800F9DB04 /* GW2EventsViewController.h */,
 				3FE77CDF18E4A32800F9DB04 /* GW2EventsViewController.m */,
-				3FE77CE118E4A36C00F9DB04 /* GW2MapViewController.h */,
-				3FE77CE218E4A36C00F9DB04 /* GW2MapViewController.m */,
+				3FE77CE118E4A36C00F9DB04 /* GW2FavoritesViewController.h */,
+				3FE77CE218E4A36C00F9DB04 /* GW2FavoritesViewController.m */,
 				3FE77CE418E4A37D00F9DB04 /* GW2SettingsViewController.h */,
 				3FE77CE518E4A37D00F9DB04 /* GW2SettingsViewController.m */,
 				3FE77CE718E4A49500F9DB04 /* GW2ServerListViewController.h */,
@@ -414,7 +414,7 @@
 				4C0390C318E6DD1800783F6E /* GW2Server.m in Sources */,
 				3F21419218E80BF400213CCC /* GW2Client.m in Sources */,
 				3F21419A18E86C6E00213CCC /* GW2MapList.m in Sources */,
-				3FE77CE318E4A36C00F9DB04 /* GW2MapViewController.m in Sources */,
+				3FE77CE318E4A36C00F9DB04 /* GW2FavoritesViewController.m in Sources */,
 				3FE77CE618E4A37D00F9DB04 /* GW2SettingsViewController.m in Sources */,
 				3FE77CE918E4A49500F9DB04 /* GW2ServerListViewController.m in Sources */,
 				3F7A53ED18DB744900F77F88 /* GW2AppDelegate.m in Sources */,

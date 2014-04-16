@@ -185,10 +185,10 @@
             </objects>
             <point key="canvasLocation" x="1279" y="657"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Favorites View Controller-->
         <scene sceneID="xYQ-TB-NtF">
             <objects>
-                <viewController id="Qxm-Lh-Yns" customClass="GW2MapViewController" sceneMemberID="viewController">
+                <viewController id="Qxm-Lh-Yns" customClass="GW2FavoritesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PC7-fT-rKf"/>
                         <viewControllerLayoutGuide type="bottom" id="Ala-PO-jC6"/>
@@ -250,11 +250,11 @@
             </objects>
             <point key="canvasLocation" x="1279" y="2053"/>
         </scene>
-        <!--Navigation Controller - Map-->
+        <!--Navigation Controller - Favorites-->
         <scene sceneID="Tvr-Zb-FPu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z7T-pT-eB7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="QwL-ki-aG5"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="QwL-ki-aG5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QFR-ag-beP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
