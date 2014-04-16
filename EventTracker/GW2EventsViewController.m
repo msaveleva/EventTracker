@@ -54,7 +54,7 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     }
     
     self.activityIndicator =
-        [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.activityIndicator.center = self.view.center;
     [self.view addSubview:self.activityIndicator];
     [self.activityIndicator startAnimating];

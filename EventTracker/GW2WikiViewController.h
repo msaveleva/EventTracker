@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GW2WikiViewController : UIViewController
+@interface GW2WikiViewController : UIViewController <UIWebViewDelegate>
 
 @property (copy, nonatomic) NSString *eventName;
 
