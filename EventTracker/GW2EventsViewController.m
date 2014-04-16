@@ -23,6 +23,8 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 @interface GW2EventsViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *eventListTableView;
+@property (retain, nonatomic) UIBarButtonItem *doneBarButtonItem;
+@property (retain, nonatomic) UIBarButtonItem *addBarButtonItem;
 @property (strong, nonatomic) GW2EventList *events;
 @property (strong, nonatomic) GW2EventNameList *eventNames;
 @property (strong, nonatomic) NSMutableArray *activeEvents;
@@ -46,6 +48,19 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 {
     [super viewDidLoad];
     
+    self.eventListTableView.allowsSelectionDuringEditing = YES;
+    
+    //custom barButtonItems
+    self.doneBarButtonItem =
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                      target:self
+                                                      action:@selector(finishAddingToFavorites)];
+    self.addBarButtonItem =
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose
+                                                      target:self
+                                                      action:@selector(addToFavorites)];
+    self.navigationItem.rightBarButtonItem = self.addBarButtonItem;
+    
     //show GW2ServerListViewController if server was not selected
     if ([[GW2UserSettings sharedSettings] loadServerID] == nil) {
         GW2ServerListViewController *viewController =
@@ -53,12 +68,14 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
         [self presentViewController:viewController animated:NO completion:nil];
     }
     
+    //activity indicator implementation
     self.activityIndicator =
         [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.activityIndicator.center = self.view.center;
     [self.view addSubview:self.activityIndicator];
     [self.activityIndicator startAnimating];
     
+    //get data for tableView
     GW2EventManager *eventManager = [GW2EventManager sharedManager];
     [eventManager recieveEventListFromManagerForMap:self.selectedMap withCompletion:^(GW2EventList *eventList){
         self.events = eventList;
@@ -94,6 +111,16 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     }
 }
 
+- (void)addToFavorites{
+    self.navigationItem.rightBarButtonItem = self.doneBarButtonItem;
+    [self.eventListTableView setEditing:YES animated:YES];
+}
+
+- (void)finishAddingToFavorites{
+    self.navigationItem.rightBarButtonItem = self.addBarButtonItem;
+    [self.eventListTableView setEditing:NO animated:YES];
+}
+
 #pragma mark - TableView methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -109,6 +136,32 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     cell.textLabel.text = eventName.eventName;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.isEditing) {
+        //TODO: handle selection
+        NSLog(@"selected!");
+    }
+}
+
+#pragma mark - TableView editing methods
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleInsert;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //select cells?
 }
 
 #pragma mark - Navigation

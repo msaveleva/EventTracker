@@ -15,6 +15,7 @@ static NSString * const kGW2WikiUrl = @"http://wiki.guildwars2.com/wiki/";
 @property (weak, nonatomic) IBOutlet UIWebView *wikiWebView;
 @property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
 
+
 @end
 
 @implementation GW2WikiViewController
