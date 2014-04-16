@@ -90,6 +90,8 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
         
         [self.activityIndicator stopAnimating];
     }];
+    
+    NSLog(@"Favorites: %@", [[GW2UserSettings sharedSettings] loadUserFavoriteEventIDs]);
 }
 
 - (void)sortActiveEvents
@@ -143,8 +145,8 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell.isEditing) {
-        //TODO: handle selection
-        NSLog(@"selected!");
+        GW2EventName *eventName = self.activeEventNames[indexPath.row];
+        [GW2UserSettings sharedSettings].userEventID = eventName.eventID;
     } else {
         NSIndexPath *indexpath = [self.eventListTableView indexPathForSelectedRow];
         GW2WikiViewController *destinationVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kShowWikiForEvent];
@@ -165,22 +167,5 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 {
     return UITableViewCellEditingStyleInsert;
 }
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //select cells?
-}
-
-//#pragma mark - Navigation
-//
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:kShowWikiForEvent]) {
-//        NSIndexPath *indexpath = [self.eventListTableView indexPathForSelectedRow];
-//        GW2WikiViewController *destinationVC = (id)segue.destinationViewController;
-//        NSString *selectedEventName = [self.eventNames.eventNameList[indexpath.row] eventName];
-//        destinationVC.eventName = selectedEventName;
-//    }
-//}
 
 @end

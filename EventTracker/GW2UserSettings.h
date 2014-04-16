@@ -13,9 +13,11 @@
 @interface GW2UserSettings : NSObject
 
 @property (strong, nonatomic) NSNumber *userServerID;
+@property (strong, nonatomic) NSString *userEventID;
 
 + (instancetype)sharedSettings;
 
 - (NSNumber *)loadServerID;
+- (NSArray *)loadUserFavoriteEventIDs;
 
 @end
