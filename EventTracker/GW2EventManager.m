@@ -13,6 +13,7 @@
 #import "GW2EventList.h"
 #import "GW2EventName.h"
 #import "GW2EventNameList.h"
+#import "GW2UserSettings.h"
 
 @interface GW2EventManager ()
 
@@ -38,7 +39,21 @@
 
 - (void)recieveEventListFromManagerForMap:(GW2Map *)map withCompletion:(void (^)(GW2EventList *eventList))completionHandler
 {
-    
+    GW2Client *client = [[GW2Client alloc] init];
+    __weak typeof(self) weakself = self;
+    NSNumber *serverID = [[GW2UserSettings sharedSettings] loadServerID];
+    [client fetchEventListForServerWithID:serverID
+                                mapWithID:map.mapID
+                    withCompletionHandler:^(NSData* recievedData){
+                        NSDictionary *jSONDict = [NSJSONSerialization JSONObjectWithData:recievedData
+                                                                                 options:0
+                                                                                   error:NULL];
+                        weakself.eventListFromManager = [MTLJSONAdapter modelOfClass:[GW2EventList class]
+                                                                  fromJSONDictionary:jSONDict
+                                                                               error:NULL];
+                        
+                        completionHandler(weakself.eventListFromManager);
+                    }];
 }
 
 - (void)recieveEventNameListFromManager:(void (^)(GW2EventNameList *eventNameList))completionHandler

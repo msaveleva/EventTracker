@@ -10,7 +10,6 @@
 #import "GW2UserSettings.h"
 #import "GW2ServerListViewController.h"
 #import "GW2Map.h"
-#import "GW2Client.h"
 #import "GW2Event.h"
 #import "GW2EventList.h"
 #import "GW2EventName.h"
@@ -28,7 +27,6 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 @property (strong, nonatomic) GW2EventNameList *eventNames;
 @property (strong, nonatomic) NSMutableArray *activeEvents;
 @property (strong, nonatomic) NSMutableArray *activeEventNames;
-@property (strong, nonatomic) GW2Client *client;
 
 @end
 
@@ -47,47 +45,23 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 {
     [super viewDidLoad];
     
+    //show GW2ServerListViewController if server was not selected
     if ([[GW2UserSettings sharedSettings] loadServerID] == nil) {
         GW2ServerListViewController *viewController =
             [self.storyboard instantiateViewControllerWithIdentifier:@"serverList"];
         [self presentViewController:viewController animated:NO completion:nil];
     }
     
-    self.client = [GW2Client new];
-    
-    //fetching event name list
-    __weak typeof(self) weakself = self;
-//    [self.client fetchEventNameListWithCompletionHandler:^(NSData *recievedData){
-//        NSArray *jSONArray = [NSJSONSerialization JSONObjectWithData:recievedData
-//                                                             options:0
-//                                                               error:NULL];
-//        NSDictionary *jSONDict = @{@"eventNameList": jSONArray};
-//        weakself.eventNames = [MTLJSONAdapter modelOfClass:[GW2EventNameList class]
-//                                        fromJSONDictionary:jSONDict
-//                                                     error:NULL];
-//        
-//        [weakself sortActiveEvents];
-//        [weakself.eventListTableView reloadData];
-//    }];
     GW2EventManager *eventManager = [GW2EventManager sharedManager];
+    [eventManager recieveEventListFromManagerForMap:self.selectedMap withCompletion:^(GW2EventList *eventList){
+        self.events = eventList;
+    }];
+    
     [eventManager recieveEventNameListFromManager:^(GW2EventNameList *eventNameList){
         self.eventNames = eventNameList;
         
         [self sortActiveEvents];
         [self.eventListTableView reloadData];
-    }];
-    
-    //fetching events for map and server
-    NSNumber *serverID = [[GW2UserSettings sharedSettings] loadServerID];
-    [self.client fetchEventListForServerWithID:serverID
-                                     mapWithID:self.selectedMap.mapID
-                         withCompletionHandler:^(NSData* recievedData){
-                             NSDictionary *jSONDict = [NSJSONSerialization JSONObjectWithData:recievedData
-                                                                                      options:0
-                                                                                        error:NULL];
-                             weakself.events = [MTLJSONAdapter modelOfClass:[GW2EventList class]
-                                                         fromJSONDictionary:jSONDict
-                                                                      error:NULL];
     }];
 }
 
