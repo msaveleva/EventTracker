@@ -37,6 +37,7 @@
 		4C0390CC18E6DD3B00783F6E /* GW2ServerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0390CB18E6DD3B00783F6E /* GW2ServerList.m */; };
 		4C0390CF18E6E01100783F6E /* GW2Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0390CE18E6E01100783F6E /* GW2Map.m */; };
 		4C0390D218E6E44500783F6E /* GW2EventName.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0390D118E6E44500783F6E /* GW2EventName.m */; };
+		4CA511C118F9660B0024442A /* GW2EventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA511C018F9660B0024442A /* GW2EventManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		4C0390CE18E6E01100783F6E /* GW2Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2Map.m; sourceTree = "<group>"; };
 		4C0390D018E6E44500783F6E /* GW2EventName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventName.h; sourceTree = "<group>"; };
 		4C0390D118E6E44500783F6E /* GW2EventName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventName.m; sourceTree = "<group>"; };
+		4CA511BF18F9660B0024442A /* GW2EventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventManager.h; sourceTree = "<group>"; };
+		4CA511C018F9660B0024442A /* GW2EventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventManager.m; sourceTree = "<group>"; };
 		4F6620E7F0BB4122AFB96F31 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CDD4CE50084224B3E9D3BE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -261,6 +264,8 @@
 				4C0390CE18E6E01100783F6E /* GW2Map.m */,
 				3F21419818E86C6E00213CCC /* GW2MapList.h */,
 				3F21419918E86C6E00213CCC /* GW2MapList.m */,
+				4CA511BF18F9660B0024442A /* GW2EventManager.h */,
+				4CA511C018F9660B0024442A /* GW2EventManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -405,6 +410,7 @@
 				4C0390CC18E6DD3B00783F6E /* GW2ServerList.m in Sources */,
 				3F51C03B18F8594F004A4867 /* GW2WikiViewController.m in Sources */,
 				3F7A53E918DB744900F77F88 /* main.m in Sources */,
+				4CA511C118F9660B0024442A /* GW2EventManager.m in Sources */,
 				4C0390C318E6DD1800783F6E /* GW2Server.m in Sources */,
 				3F21419218E80BF400213CCC /* GW2Client.m in Sources */,
 				3F21419A18E86C6E00213CCC /* GW2MapList.m in Sources */,
