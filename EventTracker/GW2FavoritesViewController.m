@@ -16,6 +16,8 @@ static NSString *const kFavoritesCell = @"favoritesCell";
 
 @property (weak, nonatomic) IBOutlet UITableView *favoritesTableView;
 @property (strong, nonatomic) NSArray *userFavoritEventIDs;
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) NSMutableArray *allEventsDetails;
 
 @end
 
@@ -34,21 +36,25 @@ static NSString *const kFavoritesCell = @"favoritesCell";
 {
     [super viewDidLoad];
     
+    self.allEventsDetails = [NSMutableArray new];
     self.userFavoritEventIDs = [[GW2UserSettings sharedSettings] loadUserFavoriteEventIDs];
-    
     GW2EventManager *eventManager = [GW2EventManager sharedManager];
-//    [eventManager recieveEventListFromManagerForMap:self.selectedMap withCompletion:^(GW2EventList *eventList){
-//        self.events = eventList;
-//    }];
-//    
-//    [eventManager recieveEventNameListFromManager:^(GW2EventNameList *eventNameList){
-//        self.eventNames = eventNameList;
-//        
-//        [self sortActiveEvents];
-//        [self.eventListTableView reloadData];
-//        
-//        [self.activityIndicator stopAnimating];
-//    }];
+    
+    //activity indicator implementation
+    self.activityIndicator =
+    [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityIndicator.center = self.view.center;
+    [self.view addSubview:self.activityIndicator];
+    [self.activityIndicator startAnimating];
+    
+    for (NSString *eventID in self.userFavoritEventIDs) {
+        [eventManager recieveEventDetailsFromManagerForEventID:eventID withCompletion:^(GW2Event *eventDetails){
+            [self.allEventsDetails addObject:eventDetails];
+            
+            [self.favoritesTableView reloadData];
+            [self.activityIndicator stopAnimating];
+        }];
+    }
 }
 
 #pragma mark - Table View methods

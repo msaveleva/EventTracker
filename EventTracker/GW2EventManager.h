@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class GW2Map;
+@class GW2Event;
 @class GW2EventList;
 @class GW2EventNameList;
 
@@ -18,5 +19,6 @@
 
 - (void)recieveEventListFromManagerForMap:(GW2Map *)map withCompletion:(void (^)(GW2EventList *eventList))completionHandler;
 - (void)recieveEventNameListFromManager:(void (^)(GW2EventNameList *eventNameList))completionHandler;
+- (void)recieveEventDetailsFromManagerForEventID:(NSString *)eventID withCompletion:(void (^)(GW2Event *eventDetails))completionHandler;
 
 @end
