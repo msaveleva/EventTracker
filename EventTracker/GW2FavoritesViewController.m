@@ -9,6 +9,7 @@
 #import "GW2FavoritesViewController.h"
 #import "GW2UserSettings.h"
 #import "GW2EventManager.h"
+#import "GW2Event.h"
 
 static NSString *const kFavoritesCell = @"favoritesCell";
 
@@ -50,9 +51,11 @@ static NSString *const kFavoritesCell = @"favoritesCell";
     for (NSString *eventID in self.userFavoritEventIDs) {
         [eventManager recieveEventDetailsFromManagerForEventID:eventID withCompletion:^(GW2Event *eventDetails){
             [self.allEventsDetails addObject:eventDetails];
-            
             [self.favoritesTableView reloadData];
-            [self.activityIndicator stopAnimating];
+            
+            if (self.activityIndicator.isAnimating) {
+                [self.activityIndicator stopAnimating];
+            }
         }];
     }
 }
@@ -69,8 +72,36 @@ static NSString *const kFavoritesCell = @"favoritesCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFavoritesCell
                                                             forIndexPath:indexPath];
     cell.textLabel.text = self.userFavoritEventIDs[indexPath.row];
+//    GW2Event *event = self.allEventsDetails[indexPath.row];
+//    cell.textLabel.text = event.eventState;
     
     return cell;
+}
+
+- (NSString *)convertEventStateFromState:(GW2EventStatus)status
+{
+    switch (status) {
+        case GW2EventStatusInactive:
+            return @"Inactive";
+            break;
+        case GW2EventStatusActive:
+            return @"Active";
+            break;
+        case GW2EventStatusSuccess:
+            return @"Success";
+            break;
+        case GW2EventStatusFail:
+            return @"Fail";
+            break;
+        case GW2EventStatusWarmup:
+            return @"Warmup";
+            break;
+        case GW2EventStatusPreparation:
+            return @"Preparation";
+            break;
+        default:
+            break;
+    }
 }
 
 //- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
