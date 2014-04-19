@@ -42,10 +42,6 @@ static NSString *const kFavoritesCell = @"favoritesCell";
     self.userFavoritEventIDs = [[GW2UserSettings sharedSettings] loadUserFavoriteEventIDs];
     GW2EventManager *eventManager = [GW2EventManager sharedManager];
     
-    //load cell from nib
-    UINib *nib = [UINib nibWithNibName:@"GW2FavoritesCell" bundle: nil];
-    [self.favoritesCollectionView registerNib:nib forCellWithReuseIdentifier:kFavoritesCell];
-    
     //activity indicator implementation
     self.activityIndicator =
     [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -56,7 +52,7 @@ static NSString *const kFavoritesCell = @"favoritesCell";
     for (NSString *eventID in self.userFavoritEventIDs) {
         [eventManager recieveEventDetailsFromManagerForEventID:eventID withCompletion:^(GW2Event *eventDetails){
             [self.allEventsDetails addObject:eventDetails];
-//            [self.favoritesTableView reloadData]; //TODO: reload data for collectionView
+            [self.favoritesCollectionView reloadData]; //TODO: reload data for collectionView
             
             if (self.activityIndicator.isAnimating) {
                 [self.activityIndicator stopAnimating];
@@ -127,6 +123,11 @@ static NSString *const kFavoritesCell = @"favoritesCell";
 {
     GW2FavoritesCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kFavoritesCell
                                                                        forIndexPath:indexPath];
+    
+    if (self.allEventsDetails.count != 0 && indexPath.row < [self.allEventsDetails count]) {
+        GW2Event *event = self.allEventsDetails[indexPath.row];
+        cell.eventStatusLabel.text = [self convertEventStateFromState:event.eventState];
+    }
     
     return cell;
 }

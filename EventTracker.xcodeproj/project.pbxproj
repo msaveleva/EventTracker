@@ -27,7 +27,6 @@
 		3F7A540618DB744900F77F88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A540418DB744900F77F88 /* InfoPlist.strings */; };
 		3F7A540818DB744900F77F88 /* EventTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A540718DB744900F77F88 /* EventTrackerTests.m */; };
 		3F85F6B519023E85003B99C3 /* GW2FavoritesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85F6B419023E85003B99C3 /* GW2FavoritesCell.m */; };
-		3F85F6B719023E91003B99C3 /* GW2FavoritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F85F6B619023E91003B99C3 /* GW2FavoritesCell.xib */; };
 		3F97629E18F196BA00453C8C /* GW2EventNameList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F97629D18F196BA00453C8C /* GW2EventNameList.m */; };
 		3FE77CE018E4A32800F9DB04 /* GW2EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CDF18E4A32800F9DB04 /* GW2EventsViewController.m */; };
 		3FE77CE318E4A36C00F9DB04 /* GW2FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE218E4A36C00F9DB04 /* GW2FavoritesViewController.m */; };
@@ -82,7 +81,6 @@
 		3F7A540718DB744900F77F88 /* EventTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventTrackerTests.m; sourceTree = "<group>"; };
 		3F85F6B319023E85003B99C3 /* GW2FavoritesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2FavoritesCell.h; sourceTree = "<group>"; };
 		3F85F6B419023E85003B99C3 /* GW2FavoritesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2FavoritesCell.m; sourceTree = "<group>"; };
-		3F85F6B619023E91003B99C3 /* GW2FavoritesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GW2FavoritesCell.xib; sourceTree = "<group>"; };
 		3F97629C18F196BA00453C8C /* GW2EventNameList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventNameList.h; sourceTree = "<group>"; };
 		3F97629D18F196BA00453C8C /* GW2EventNameList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventNameList.m; sourceTree = "<group>"; };
 		3FE77CDE18E4A32800F9DB04 /* GW2EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventsViewController.h; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 			children = (
 				3F85F6B319023E85003B99C3 /* GW2FavoritesCell.h */,
 				3F85F6B419023E85003B99C3 /* GW2FavoritesCell.m */,
-				3F85F6B619023E91003B99C3 /* GW2FavoritesCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -365,7 +362,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F85F6B719023E91003B99C3 /* GW2FavoritesCell.xib in Resources */,
 				3F7A53F518DB744900F77F88 /* Images.xcassets in Resources */,
 				3F7A53E718DB744900F77F88 /* InfoPlist.strings in Resources */,
 				3F7A53F018DB744900F77F88 /* Main.storyboard in Resources */,
