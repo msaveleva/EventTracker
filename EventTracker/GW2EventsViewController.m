@@ -52,7 +52,7 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     self.eventListTableView.allowsSelectionDuringEditing = YES;
     self.eventListTableView.allowsMultipleSelectionDuringEditing = YES;
     
-    self.favoritEvents = [[GW2UserSettings sharedSettings] loadUserFavoriteEventIDs];
+    self.favoritEvents = [[GW2UserSettings sharedSettings] loadUserEventIDandName];
     
     //custom barButtonItems
     self.doneBarButtonItem =
@@ -140,7 +140,8 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     GW2EventName *eventName = self.activeEventNames[indexPath.row];
     cell.textLabel.text = eventName.eventName;
     
-    for (NSString *eventID in self.favoritEvents) {
+    for (NSDictionary *event in self.favoritEvents) {
+        NSString *eventID = [event objectForKey:@"eventID"];
         if ([eventName.eventID isEqualToString:eventID]) {
             cell.backgroundColor = [UIColor grayColor];
         }
@@ -153,8 +154,10 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell.isEditing) {
-        GW2EventName *eventName = self.activeEventNames[indexPath.row];
-        [GW2UserSettings sharedSettings].userEventID = eventName.eventID;
+        NSString *eventName = [self.activeEventNames[indexPath.row] eventName];
+        NSString *event = [self.activeEvents[indexPath.row] eventID];
+        NSDictionary *favoriteEvent = [NSDictionary dictionaryWithObjectsAndKeys:eventName, @"eventName", event, @"eventID", nil];
+        [GW2UserSettings sharedSettings].userEventIDandName = favoriteEvent;
     } else {
         NSIndexPath *indexpath = [self.eventListTableView indexPathForSelectedRow];
         GW2WikiViewController *destinationVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kShowWikiForEvent];

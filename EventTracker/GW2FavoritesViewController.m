@@ -39,7 +39,7 @@ static NSString *const kFavoritesCell = @"favoritesCell";
     [super viewDidLoad];
     
     self.allEventsDetails = [NSMutableArray new];
-    self.userFavoritEventIDs = [[GW2UserSettings sharedSettings] loadUserFavoriteEventIDs];
+    self.userFavoritEventIDs = [[GW2UserSettings sharedSettings] loadUserEventIDandName];
     GW2EventManager *eventManager = [GW2EventManager sharedManager];
     
     //activity indicator implementation
@@ -49,7 +49,8 @@ static NSString *const kFavoritesCell = @"favoritesCell";
     [self.view addSubview:self.activityIndicator];
     [self.activityIndicator startAnimating];
     
-    for (NSString *eventID in self.userFavoritEventIDs) {
+    for (NSDictionary *event in self.userFavoritEventIDs) {
+        NSString *eventID = (NSString *)[event objectForKey:@"eventID"];
         [eventManager recieveEventDetailsFromManagerForEventID:eventID withCompletion:^(GW2Event *eventDetails){
             [self.allEventsDetails addObject:eventDetails];
             [self.favoritesCollectionView reloadData]; //TODO: reload data for collectionView
@@ -126,7 +127,9 @@ static NSString *const kFavoritesCell = @"favoritesCell";
     
     if (self.allEventsDetails.count != 0 && indexPath.row < [self.allEventsDetails count]) {
         GW2Event *event = self.allEventsDetails[indexPath.row];
+        NSDictionary *eventInfo = self.userFavoritEventIDs[indexPath.row];
         cell.eventStatusLabel.text = [self convertEventStateFromState:event.eventState];
+        cell.eventNameLabel.text = [eventInfo objectForKey:@"eventName"];
     }
     
     return cell;

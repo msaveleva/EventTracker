@@ -47,23 +47,27 @@ static NSString * const kUserFavoriteEventIDs = @"userFavoriteEventIDs";
     return serverID;
 }
 
-- (void)setUserEventID:(NSString *)userEventID
-{    
-    _userFavoriteEventIDs = [NSMutableArray arrayWithArray:[self loadUserFavoriteEventIDs]];
+//changed saving of favorites
+- (void)setUserEventIDandName:(NSDictionary *)userEventIDandName
+{
+    _userFavoriteEventIDs = [NSMutableArray arrayWithArray:[self loadUserEventIDandName]];
     
-    for (NSString *eventID in _userFavoriteEventIDs) {
-        if ([eventID isEqualToString:userEventID]) {
+    for (NSDictionary *eventIDandName in _userFavoriteEventIDs) {
+        NSString *arrayEventID = [eventIDandName objectForKey:@"eventID"];
+        NSString *userEventID = [userEventIDandName objectForKey:@"eventID"];
+        if ([arrayEventID isEqualToString:userEventID]) {
             return;
         }
     }
-    [_userFavoriteEventIDs addObject:userEventID];
+    
+    [_userFavoriteEventIDs addObject:userEventIDandName];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:(NSArray *)_userFavoriteEventIDs forKey:kUserFavoriteEventIDs];
     
     [defaults synchronize];
 }
 
-- (NSArray *)loadUserFavoriteEventIDs
+- (NSArray *)loadUserEventIDandName
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSArray *favoritEvents = [defaults objectForKey:kUserFavoriteEventIDs];
