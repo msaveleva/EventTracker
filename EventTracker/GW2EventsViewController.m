@@ -30,6 +30,7 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 @property (strong, nonatomic) NSMutableArray *activeEvents;
 @property (strong, nonatomic) NSMutableArray *activeEventNames;
 @property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) NSArray *favoritEvents;
 
 @end
 
@@ -50,6 +51,8 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     
     self.eventListTableView.allowsSelectionDuringEditing = YES;
     self.eventListTableView.allowsMultipleSelectionDuringEditing = YES;
+    
+    self.favoritEvents = [[GW2UserSettings sharedSettings] loadUserFavoriteEventIDs];
     
     //custom barButtonItems
     self.doneBarButtonItem =
@@ -119,6 +122,7 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 
 - (void)finishAddingToFavorites{
     self.navigationItem.rightBarButtonItem = self.addBarButtonItem;
+    [self.eventListTableView reloadData];
     [self.eventListTableView setEditing:NO animated:YES];
 }
 
@@ -135,6 +139,12 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
                                                             forIndexPath:indexPath];
     GW2EventName *eventName = self.activeEventNames[indexPath.row];
     cell.textLabel.text = eventName.eventName;
+    
+    for (NSString *eventID in self.favoritEvents) {
+        if ([eventName.eventID isEqualToString:eventID]) {
+            cell.backgroundColor = [UIColor grayColor];
+        }
+    }
     
     return cell;
 }
