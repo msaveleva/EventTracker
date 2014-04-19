@@ -10,12 +10,13 @@
 #import "GW2UserSettings.h"
 #import "GW2EventManager.h"
 #import "GW2Event.h"
+#import "GW2FavoritesCell.h"
 
 static NSString *const kFavoritesCell = @"favoritesCell";
 
 @interface GW2FavoritesViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *favoritesTableView;
+@property (weak, nonatomic) IBOutlet UICollectionView *favoritesCollectionView;
 @property (strong, nonatomic) NSArray *userFavoritEventIDs;
 @property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) NSMutableArray *allEventsDetails;
@@ -41,6 +42,10 @@ static NSString *const kFavoritesCell = @"favoritesCell";
     self.userFavoritEventIDs = [[GW2UserSettings sharedSettings] loadUserFavoriteEventIDs];
     GW2EventManager *eventManager = [GW2EventManager sharedManager];
     
+    //load cell from nib
+    UINib *nib = [UINib nibWithNibName:@"GW2FavoritesCell" bundle: nil];
+    [self.favoritesCollectionView registerNib:nib forCellWithReuseIdentifier:kFavoritesCell];
+    
     //activity indicator implementation
     self.activityIndicator =
     [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -51,7 +56,7 @@ static NSString *const kFavoritesCell = @"favoritesCell";
     for (NSString *eventID in self.userFavoritEventIDs) {
         [eventManager recieveEventDetailsFromManagerForEventID:eventID withCompletion:^(GW2Event *eventDetails){
             [self.allEventsDetails addObject:eventDetails];
-            [self.favoritesTableView reloadData];
+//            [self.favoritesTableView reloadData]; //TODO: reload data for collectionView
             
             if (self.activityIndicator.isAnimating) {
                 [self.activityIndicator stopAnimating];
@@ -60,25 +65,25 @@ static NSString *const kFavoritesCell = @"favoritesCell";
     }
 }
 
-#pragma mark - Table View methods
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.userFavoritEventIDs count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFavoritesCell
-                                                            forIndexPath:indexPath];
-//    cell.textLabel.text = self.userFavoritEventIDs[indexPath.row];
-    if (self.allEventsDetails.count != 0 && indexPath.row < [self.allEventsDetails count]) {
-        GW2Event *event = self.allEventsDetails[indexPath.row];
-        cell.textLabel.text = [self convertEventStateFromState:event.eventState];
-    }
-    
-    return cell;
-}
+//#pragma mark - Table View methods
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    return [self.userFavoritEventIDs count];
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFavoritesCell
+//                                                            forIndexPath:indexPath];
+////    cell.textLabel.text = self.userFavoritEventIDs[indexPath.row];
+//    if (self.allEventsDetails.count != 0 && indexPath.row < [self.allEventsDetails count]) {
+//        GW2Event *event = self.allEventsDetails[indexPath.row];
+//        cell.textLabel.text = [self convertEventStateFromState:event.eventState];
+//    }
+//    
+//    return cell;
+//}
 
 - (NSString *)convertEventStateFromState:(GW2EventStatus)status
 {
@@ -106,19 +111,24 @@ static NSString *const kFavoritesCell = @"favoritesCell";
     }
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    if (cell.isEditing) {
-//        GW2EventName *eventName = self.activeEventNames[indexPath.row];
-//        [GW2UserSettings sharedSettings].userEventID = eventName.eventID;
-//    } else {
-//        NSIndexPath *indexpath = [self.eventListTableView indexPathForSelectedRow];
-//        GW2WikiViewController *destinationVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kShowWikiForEvent];
-//        NSString *selectedEventName = [self.eventNames.eventNameList[indexpath.row] eventName];
-//        destinationVC.eventName = selectedEventName;
-//        [self.navigationController pushViewController:destinationVC animated:YES];
-//    }
-//}
+#pragma mark - UICollectionView methods
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [self.userFavoritEventIDs count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    GW2FavoritesCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kFavoritesCell
+                                                                       forIndexPath:indexPath];
+    
+    return cell;
+}
 
 @end

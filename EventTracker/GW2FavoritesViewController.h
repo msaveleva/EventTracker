@@ -10,8 +10,8 @@
 
 @interface GW2FavoritesViewController : UIViewController
 <
-UITableViewDataSource,
-UITableViewDelegate
+UICollectionViewDataSource,
+UICollectionViewDelegate
 >
 
 @end
