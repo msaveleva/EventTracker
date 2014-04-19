@@ -71,9 +71,11 @@ static NSString *const kFavoritesCell = @"favoritesCell";
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFavoritesCell
                                                             forIndexPath:indexPath];
-    cell.textLabel.text = self.userFavoritEventIDs[indexPath.row];
-//    GW2Event *event = self.allEventsDetails[indexPath.row];
-//    cell.textLabel.text = event.eventState;
+//    cell.textLabel.text = self.userFavoritEventIDs[indexPath.row];
+    if (self.allEventsDetails.count != 0 && indexPath.row < [self.allEventsDetails count]) {
+        GW2Event *event = self.allEventsDetails[indexPath.row];
+        cell.textLabel.text = [self convertEventStateFromState:event.eventState];
+    }
     
     return cell;
 }
