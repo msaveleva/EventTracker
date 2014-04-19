@@ -19,6 +19,7 @@
 
 @property (strong, nonatomic) GW2EventList *eventListFromManager;
 @property (strong, nonatomic) GW2EventNameList *eventNameListFromManager;
+@property (strong, nonatomic) GW2Event *eventDetails;
 
 @end
 
@@ -40,8 +41,8 @@
 - (void)recieveEventListFromManagerForMap:(GW2Map *)map withCompletion:(void (^)(GW2EventList *eventList))completionHandler
 {
     GW2Client *client = [[GW2Client alloc] init];
-    __weak typeof(self) weakself = self;
     NSNumber *serverID = [[GW2UserSettings sharedSettings] loadServerID];
+    __weak typeof(self) weakself = self;
     [client fetchEventListForServerWithID:serverID
                                 mapWithID:map.mapID
                     withCompletionHandler:^(NSData* recievedData){
@@ -69,6 +70,24 @@
                                                       fromJSONDictionary:jSONDict
                                                                    error:NULL];
         completionHandler(weakself.eventNameListFromManager);
+    }];
+}
+
+- (void)recieveEventDetailsFromManagerForEventID:(NSString *)eventID withCompletion:(void (^)(GW2Event *eventDetails))completionHandler
+{
+    GW2Client *client = [[GW2Client alloc] init];
+    NSNumber *serverID = [[GW2UserSettings sharedSettings] loadServerID];
+    __weak typeof(self) weakself = self;
+    [client fetchEventDetailsForServerWithID:serverID
+                                     eventID:eventID
+                       withCompletionHandler:^(NSData *recievedData){
+        NSDictionary *jSONDict = [NSJSONSerialization JSONObjectWithData:recievedData
+                                                                 options:0
+                                                                   error:NULL];
+        GW2EventList *events = [MTLJSONAdapter modelOfClass:[GW2EventList class] fromJSONDictionary:jSONDict error:NULL];
+        weakself.eventDetails = [events.eventList firstObject];
+        
+        completionHandler(weakself.eventDetails);
     }];
 }
 

@@ -8,7 +8,12 @@
 
 #import "GW2UserSettings.h"
 
+static NSString * const kUserKey = @"userKey";
+static NSString * const kUserFavoriteEventIDs = @"userFavoriteEventIDs";
+
 @interface GW2UserSettings ()
+
+@property (strong, nonatomic) NSMutableArray *userFavoriteEvents;
 
 @end
 
@@ -29,7 +34,7 @@
 {
     _userServerID = userServerID;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:userServerID forKey:@"userKey"];
+    [defaults setObject:userServerID forKey:kUserKey];
     
     [defaults synchronize];
 }
@@ -37,9 +42,37 @@
 - (NSNumber *)loadServerID
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSNumber *serverID = [defaults objectForKey:@"userKey"];
+    NSNumber *serverID = [defaults objectForKey:kUserKey];
     
     return serverID;
+}
+
+//changed saving of favorites
+- (void)setUserEventIDandName:(NSDictionary *)userEventIDandName
+{
+    _userFavoriteEvents = [NSMutableArray arrayWithArray:[self loadUserEventIDandName]];
+    
+    for (NSDictionary *eventIDandName in _userFavoriteEvents) {
+        NSString *arrayEventID = [eventIDandName objectForKey:@"eventID"];
+        NSString *userEventID = [userEventIDandName objectForKey:@"eventID"];
+        if ([arrayEventID isEqualToString:userEventID]) {
+            return;
+        }
+    }
+    
+    [_userFavoriteEvents addObject:userEventIDandName];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:(NSArray *)_userFavoriteEvents forKey:kUserFavoriteEventIDs];
+    
+    [defaults synchronize];
+}
+
+- (NSArray *)loadUserEventIDandName
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *favoritEvents = [defaults objectForKey:kUserFavoriteEventIDs];
+    
+    return favoritEvents;
 }
 
 @end

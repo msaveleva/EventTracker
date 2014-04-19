@@ -185,10 +185,10 @@
             </objects>
             <point key="canvasLocation" x="1279" y="657"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Favorites View Controller-->
         <scene sceneID="xYQ-TB-NtF">
             <objects>
-                <viewController id="Qxm-Lh-Yns" customClass="GW2MapViewController" sceneMemberID="viewController">
+                <viewController id="Qxm-Lh-Yns" customClass="GW2FavoritesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PC7-fT-rKf"/>
                         <viewControllerLayoutGuide type="bottom" id="Ala-PO-jC6"/>
@@ -196,9 +196,77 @@
                     <view key="view" contentMode="scaleToFill" id="F0h-5X-Sou">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gcR-Lj-TYl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.74787694381213976" green="1" blue="0.68767628047719698" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rDw-AR-lwS">
+                                    <size key="itemSize" width="320" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="10"/>
+                                    <size key="footerReferenceSize" width="0.0" height="10"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoritesCell" id="vGg-Z6-ejo" customClass="GW2FavoritesCell">
+                                        <rect key="frame" x="0.0" y="74" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1B-Fg-UQa">
+                                                    <rect key="frame" x="20" y="20" width="94" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLZ-ks-l8M">
+                                                    <rect key="frame" x="20" y="59" width="98" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="I1B-Fg-UQa" secondAttribute="trailing" constant="10" id="Hfi-mn-pMB"/>
+                                            <constraint firstItem="hLZ-ks-l8M" firstAttribute="leading" secondItem="I1B-Fg-UQa" secondAttribute="leading" id="Jeu-US-uaL"/>
+                                            <constraint firstItem="I1B-Fg-UQa" firstAttribute="leading" secondItem="vGg-Z6-ejo" secondAttribute="leading" constant="20" id="Y8C-r9-19G"/>
+                                            <constraint firstItem="I1B-Fg-UQa" firstAttribute="top" secondItem="vGg-Z6-ejo" secondAttribute="top" constant="20" id="gby-vK-PuJ"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hLZ-ks-l8M" secondAttribute="trailing" constant="10" id="tFB-Nz-DfC"/>
+                                            <constraint firstAttribute="bottom" secondItem="hLZ-ks-l8M" secondAttribute="bottom" constant="20" id="vba-yw-shJ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="eventNameLabel" destination="I1B-Fg-UQa" id="eCK-aH-xmd"/>
+                                            <outlet property="eventStatusLabel" destination="hLZ-ks-l8M" id="AnE-Qv-UGn"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WBN-Ll-fHb">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="10"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kwg-tl-Krn">
+                                    <rect key="frame" x="0.0" y="174" width="320" height="10"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="Qxm-Lh-Yns" id="pge-Qu-wNg"/>
+                                    <outlet property="delegate" destination="Qxm-Lh-Yns" id="vy8-tb-6Ba"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="0.66412221926155968" green="1" blue="0.69783614618054113" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="KYj-F9-0d1"/>
+                    <connections>
+                        <outlet property="favoritesCollectionView" destination="gcR-Lj-TYl" id="sjn-oa-hOC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUU-AN-FMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -250,11 +318,11 @@
             </objects>
             <point key="canvasLocation" x="1279" y="2053"/>
         </scene>
-        <!--Navigation Controller - Map-->
+        <!--Navigation Controller - Favorites-->
         <scene sceneID="Tvr-Zb-FPu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z7T-pT-eB7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="QwL-ki-aG5"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="QwL-ki-aG5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QFR-ag-beP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

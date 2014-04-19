@@ -30,6 +30,7 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 @property (strong, nonatomic) NSMutableArray *activeEvents;
 @property (strong, nonatomic) NSMutableArray *activeEventNames;
 @property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) NSArray *favoritEvents;
 
 @end
 
@@ -50,6 +51,8 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     
     self.eventListTableView.allowsSelectionDuringEditing = YES;
     self.eventListTableView.allowsMultipleSelectionDuringEditing = YES;
+    
+    self.favoritEvents = [[GW2UserSettings sharedSettings] loadUserEventIDandName];
     
     //custom barButtonItems
     self.doneBarButtonItem =
@@ -119,6 +122,7 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 
 - (void)finishAddingToFavorites{
     self.navigationItem.rightBarButtonItem = self.addBarButtonItem;
+    [self.eventListTableView reloadData];
     [self.eventListTableView setEditing:NO animated:YES];
 }
 
@@ -136,6 +140,13 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     GW2EventName *eventName = self.activeEventNames[indexPath.row];
     cell.textLabel.text = eventName.eventName;
     
+    for (NSDictionary *event in self.favoritEvents) {
+        NSString *eventID = [event objectForKey:@"eventID"];
+        if ([eventName.eventID isEqualToString:eventID]) {
+            cell.backgroundColor = [UIColor grayColor];
+        }
+    }
+    
     return cell;
 }
 
@@ -143,8 +154,10 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell.isEditing) {
-        //TODO: handle selection
-        NSLog(@"selected!");
+        NSString *eventName = [self.activeEventNames[indexPath.row] eventName];
+        NSString *event = [self.activeEvents[indexPath.row] eventID];
+        NSDictionary *favoriteEvent = [NSDictionary dictionaryWithObjectsAndKeys:eventName, @"eventName", event, @"eventID", nil];
+        [GW2UserSettings sharedSettings].userEventIDandName = favoriteEvent;
     } else {
         NSIndexPath *indexpath = [self.eventListTableView indexPathForSelectedRow];
         GW2WikiViewController *destinationVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kShowWikiForEvent];
@@ -165,22 +178,5 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
 {
     return UITableViewCellEditingStyleInsert;
 }
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //select cells?
-}
-
-//#pragma mark - Navigation
-//
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:kShowWikiForEvent]) {
-//        NSIndexPath *indexpath = [self.eventListTableView indexPathForSelectedRow];
-//        GW2WikiViewController *destinationVC = (id)segue.destinationViewController;
-//        NSString *selectedEventName = [self.eventNames.eventNameList[indexpath.row] eventName];
-//        destinationVC.eventName = selectedEventName;
-//    }
-//}
 
 @end
