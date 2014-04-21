@@ -36,25 +36,8 @@ static NSString *const kFavoritesCell = @"favoritesCell";
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.favoritesCollectionView reloadData];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    self.allEventsDetails = [NSMutableArray new];
     self.userFavoritEventIDs = [[GW2UserSettings sharedSettings] loadUserEventIDandName];
     GW2EventManager *eventManager = [GW2EventManager sharedManager];
-    
-    //activity indicator implementation
-    self.activityIndicator =
-    [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.activityIndicator.center = self.view.center;
-    [self.view addSubview:self.activityIndicator];
-    if ([self.userFavoritEventIDs count] > 0) {
-        [self.activityIndicator startAnimating];
-    }
     
     for (NSDictionary *event in self.userFavoritEventIDs) {
         NSString *eventID = (NSString *)[event objectForKey:@"eventID"];
@@ -66,6 +49,22 @@ static NSString *const kFavoritesCell = @"favoritesCell";
                 [self.activityIndicator stopAnimating];
             }
         }];
+    }
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.allEventsDetails = [NSMutableArray new];
+
+    //activity indicator implementation
+    self.activityIndicator =
+    [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityIndicator.center = self.view.center;
+    [self.view addSubview:self.activityIndicator];
+    if ([self.userFavoritEventIDs count] > 0) {
+        [self.activityIndicator startAnimating];
     }
 }
 
