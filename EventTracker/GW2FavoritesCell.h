@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventStatusLabel;
 @property (weak, nonatomic) IBOutlet UIButton *removeButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftLabelConstraint;
+@property (nonatomic) BOOL isCellEditing;
 
 @end

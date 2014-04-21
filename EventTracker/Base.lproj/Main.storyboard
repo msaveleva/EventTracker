@@ -251,16 +251,18 @@
                                         <constraints>
                                             <constraint firstItem="hLZ-ks-l8M" firstAttribute="leading" secondItem="I1B-Fg-UQa" secondAttribute="leading" id="AI9-hl-Cpf"/>
                                             <constraint firstItem="oYJ-0A-zLC" firstAttribute="leading" secondItem="vGg-Z6-ejo" secondAttribute="leading" id="Cmg-em-JkJ"/>
-                                            <constraint firstItem="I1B-Fg-UQa" firstAttribute="leading" secondItem="oYJ-0A-zLC" secondAttribute="trailing" constant="10" id="FpI-VB-Qmv"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="I1B-Fg-UQa" secondAttribute="trailing" constant="10" id="Hfi-mn-pMB"/>
+                                            <constraint firstItem="I1B-Fg-UQa" firstAttribute="leading" secondItem="vGg-Z6-ejo" secondAttribute="leading" constant="87" id="fUU-YQ-KDh"/>
                                             <constraint firstItem="I1B-Fg-UQa" firstAttribute="top" secondItem="vGg-Z6-ejo" secondAttribute="top" constant="20" id="gby-vK-PuJ"/>
                                             <constraint firstItem="oYJ-0A-zLC" firstAttribute="top" secondItem="vGg-Z6-ejo" secondAttribute="top" constant="20" id="lGf-nD-LJo"/>
+                                            <constraint firstItem="I1B-Fg-UQa" firstAttribute="leading" secondItem="oYJ-0A-zLC" secondAttribute="trailing" constant="10" id="paX-32-kWe"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hLZ-ks-l8M" secondAttribute="trailing" constant="10" id="tFB-Nz-DfC"/>
                                             <constraint firstAttribute="bottom" secondItem="hLZ-ks-l8M" secondAttribute="bottom" constant="20" id="vba-yw-shJ"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="eventNameLabel" destination="I1B-Fg-UQa" id="eCK-aH-xmd"/>
                                             <outlet property="eventStatusLabel" destination="hLZ-ks-l8M" id="AnE-Qv-UGn"/>
+                                            <outlet property="leftLabelConstraint" destination="fUU-YQ-KDh" id="RRL-Rr-5do"/>
                                             <outlet property="removeButton" destination="oYJ-0A-zLC" id="X8z-PO-U2Y"/>
                                         </connections>
                                     </collectionViewCell>
