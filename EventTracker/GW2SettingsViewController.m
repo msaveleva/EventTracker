@@ -46,7 +46,9 @@ typedef NS_ENUM(NSUInteger, GW2SettingsTableViewCellType) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return GW2SettingsTableViewCellTypeCount;
+    //TODO: return for map tiles
+//    return GW2SettingsTableViewCellTypeCount;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,11 +64,13 @@ typedef NS_ENUM(NSUInteger, GW2SettingsTableViewCellType) {
             cell.textLabel.text = @"Change Server";
             return cell;
         }
-        case GW2SettingsTableViewCellTypeMapIcons:
-        {
-            cell.textLabel.text = @"Map Icons";
-            return cell;
-        }
+            
+        //TODO: return for map tiles
+//        case GW2SettingsTableViewCellTypeMapIcons:
+//        {
+//            cell.textLabel.text = @"Map Icons";
+//            return cell;
+//        }
 
         return nil;
     }
@@ -80,7 +84,6 @@ typedef NS_ENUM(NSUInteger, GW2SettingsTableViewCellType) {
     switch (indexPath.row) {
         case GW2SettingsTableViewCellTypeChangeServer:
             viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"serverList"];
-//            [self presentViewController:viewController animated:NO completion:nil];
             [self.navigationController pushViewController:viewController animated:YES];
             break;
         case GW2SettingsTableViewCellTypeMapIcons:
