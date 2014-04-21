@@ -44,16 +44,22 @@ const CGFloat kMinLeftLabelMargin = 0.0f;
 {
     if (!self.isCellEditing) {
         self.isCellEditing = YES;
-        [UIView animateWithDuration:10.0f animations:^{
-            self.leftLabelConstraint.constant = kLeftLabelMargin;
-        }];
-        NSLog(@"Is editing");
+        [UIView animateWithDuration:1.0f
+                              delay:0.0
+                            options:UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                             self.leftLabelConstraint.constant = kLeftLabelMargin;
+                         }
+                         completion:nil];
     } else {
         self.isCellEditing = NO;
-        [UIView animateWithDuration:10.8f animations:^{
-            self.leftLabelConstraint.constant = kMinLeftLabelMargin;
-        }];
-        NSLog(@"Is not editing");
+        [UIView animateWithDuration:1.0f
+                              delay:0.0
+                            options:UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                             self.leftLabelConstraint.constant = kMinLeftLabelMargin;
+                         }
+                         completion:nil];
     }
 }
 
