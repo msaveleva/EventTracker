@@ -216,34 +216,52 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1B-Fg-UQa">
-                                                    <rect key="frame" x="20" y="20" width="94" height="21"/>
+                                                    <rect key="frame" x="87" y="20" width="94" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLZ-ks-l8M">
-                                                    <rect key="frame" x="20" y="59" width="98" height="21"/>
+                                                    <rect key="frame" x="87" y="59" width="98" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYJ-0A-zLC">
+                                                    <rect key="frame" x="0.0" y="20" width="77" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="77" id="RB5-y1-A8I"/>
+                                                        <constraint firstAttribute="height" constant="60" id="agb-vZ-13h"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Remove">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="moveFromFavorites:" destination="Qxm-Lh-Yns" eventType="touchUpInside" id="Oau-zO-kej"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <constraints>
+                                            <constraint firstItem="hLZ-ks-l8M" firstAttribute="leading" secondItem="I1B-Fg-UQa" secondAttribute="leading" id="AI9-hl-Cpf"/>
+                                            <constraint firstItem="oYJ-0A-zLC" firstAttribute="leading" secondItem="vGg-Z6-ejo" secondAttribute="leading" id="Cmg-em-JkJ"/>
+                                            <constraint firstItem="I1B-Fg-UQa" firstAttribute="leading" secondItem="oYJ-0A-zLC" secondAttribute="trailing" constant="10" id="FpI-VB-Qmv"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="I1B-Fg-UQa" secondAttribute="trailing" constant="10" id="Hfi-mn-pMB"/>
-                                            <constraint firstItem="hLZ-ks-l8M" firstAttribute="leading" secondItem="I1B-Fg-UQa" secondAttribute="leading" id="Jeu-US-uaL"/>
-                                            <constraint firstItem="I1B-Fg-UQa" firstAttribute="leading" secondItem="vGg-Z6-ejo" secondAttribute="leading" constant="20" id="Y8C-r9-19G"/>
                                             <constraint firstItem="I1B-Fg-UQa" firstAttribute="top" secondItem="vGg-Z6-ejo" secondAttribute="top" constant="20" id="gby-vK-PuJ"/>
+                                            <constraint firstItem="oYJ-0A-zLC" firstAttribute="top" secondItem="vGg-Z6-ejo" secondAttribute="top" constant="20" id="lGf-nD-LJo"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hLZ-ks-l8M" secondAttribute="trailing" constant="10" id="tFB-Nz-DfC"/>
                                             <constraint firstAttribute="bottom" secondItem="hLZ-ks-l8M" secondAttribute="bottom" constant="20" id="vba-yw-shJ"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="eventNameLabel" destination="I1B-Fg-UQa" id="eCK-aH-xmd"/>
                                             <outlet property="eventStatusLabel" destination="hLZ-ks-l8M" id="AnE-Qv-UGn"/>
+                                            <outlet property="removeButton" destination="oYJ-0A-zLC" id="X8z-PO-U2Y"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

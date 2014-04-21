@@ -94,6 +94,9 @@ static NSString *const kFavoritesCell = @"favoritesCell";
     }
 }
 
+- (IBAction)moveFromFavorites:(id)sender {
+}
+
 #pragma mark - UICollectionView methods
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

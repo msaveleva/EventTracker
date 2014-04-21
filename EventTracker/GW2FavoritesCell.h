@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventStatusLabel;
+@property (weak, nonatomic) IBOutlet UIButton *removeButton;
 
 @end

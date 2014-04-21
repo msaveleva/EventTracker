@@ -8,6 +8,12 @@
 
 #import "GW2FavoritesCell.h"
 
+@interface GW2FavoritesCell ()
+
+@property (strong, nonatomic) UISwipeGestureRecognizer *swipeGesture;
+
+@end
+
 @implementation GW2FavoritesCell
 
 - (id)initWithFrame:(CGRect)frame
@@ -19,13 +25,20 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    // Drawing code
+    self = [super initWithCoder:aDecoder];
+    
+    self.swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(editCell)];
+    [self.swipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self addGestureRecognizer:self.swipeGesture];
+    
+    return self;
 }
-*/
+
+- (void)editCell
+{
+    NSLog(@"Swipe!");
+}
 
 @end
