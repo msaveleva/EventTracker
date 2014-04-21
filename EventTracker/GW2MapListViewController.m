@@ -11,6 +11,8 @@
 #import "GW2MapList.h"
 #import "GW2Client.h"
 #import "GW2EventsViewController.h"
+#import "GW2UserSettings.h"
+#import "GW2ServerListViewController.h"
 
 static NSString * const kMapListIdentifier = @"mapListCell";
 static NSString * const kSegueIdentifier = @"showEventForMap";
@@ -41,6 +43,13 @@ UICollectionViewDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //show GW2ServerListViewController if server was not selected
+    if ([[GW2UserSettings sharedSettings] loadServerID] == nil) {
+        GW2ServerListViewController *viewController =
+        [self.storyboard instantiateViewControllerWithIdentifier:@"serverList"];
+        [self presentViewController:viewController animated:NO completion:nil];
+    }
     
     __weak typeof(self) weakself = self;
     self.client = [GW2Client new];

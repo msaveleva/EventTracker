@@ -8,7 +8,6 @@
 
 #import "GW2EventsViewController.h"
 #import "GW2UserSettings.h"
-#import "GW2ServerListViewController.h"
 #import "GW2Map.h"
 #import "GW2Event.h"
 #import "GW2EventList.h"
@@ -64,13 +63,6 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
                                                       target:self
                                                       action:@selector(addToFavorites)];
     self.navigationItem.rightBarButtonItem = self.addBarButtonItem;
-    
-    //show GW2ServerListViewController if server was not selected
-    if ([[GW2UserSettings sharedSettings] loadServerID] == nil) {
-        GW2ServerListViewController *viewController =
-            [self.storyboard instantiateViewControllerWithIdentifier:@"serverList"];
-        [self presentViewController:viewController animated:NO completion:nil];
-    }
     
     //activity indicator implementation
     self.activityIndicator =
