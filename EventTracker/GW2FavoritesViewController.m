@@ -34,6 +34,11 @@ static NSString *const kFavoritesCell = @"favoritesCell";
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.favoritesCollectionView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -47,7 +52,9 @@ static NSString *const kFavoritesCell = @"favoritesCell";
     [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.activityIndicator.center = self.view.center;
     [self.view addSubview:self.activityIndicator];
-    [self.activityIndicator startAnimating];
+    if ([self.userFavoritEventIDs count] > 0) {
+        [self.activityIndicator startAnimating];
+    }
     
     for (NSDictionary *event in self.userFavoritEventIDs) {
         NSString *eventID = (NSString *)[event objectForKey:@"eventID"];
@@ -61,26 +68,6 @@ static NSString *const kFavoritesCell = @"favoritesCell";
         }];
     }
 }
-
-//#pragma mark - Table View methods
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    return [self.userFavoritEventIDs count];
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFavoritesCell
-//                                                            forIndexPath:indexPath];
-////    cell.textLabel.text = self.userFavoritEventIDs[indexPath.row];
-//    if (self.allEventsDetails.count != 0 && indexPath.row < [self.allEventsDetails count]) {
-//        GW2Event *event = self.allEventsDetails[indexPath.row];
-//        cell.textLabel.text = [self convertEventStateFromState:event.eventState];
-//    }
-//    
-//    return cell;
-//}
 
 - (NSString *)convertEventStateFromState:(GW2EventStatus)status
 {
