@@ -60,7 +60,7 @@ static NSString *const kFavoritesCell = @"favoritesCell";
         NSString *eventID = (NSString *)[event objectForKey:@"eventID"];
         [eventManager recieveEventDetailsFromManagerForEventID:eventID withCompletion:^(GW2Event *eventDetails){
             [self.allEventsDetails addObject:eventDetails];
-            [self.favoritesCollectionView reloadData]; //TODO: reload data for collectionView
+            [self.favoritesCollectionView reloadData];
             
             if (self.activityIndicator.isAnimating) {
                 [self.activityIndicator stopAnimating];

@@ -118,21 +118,6 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
     [self.eventListTableView setEditing:NO animated:YES];
 }
 
-- (NSString *)getNameForEventWithID:(NSString *)eventID
-{
-    NSString *eventName;
-    
-    for (int i = 0; i < [self.eventNames.eventNameList count]; i++) {
-        NSString *eventIDFromArray = [self.eventNames.eventNameList[i] eventID];
-        if ([eventID isEqualToString:eventIDFromArray]) {
-            eventName = [self.eventNames.eventNameList[i] eventName];
-            break;
-        }
-    }
-    
-    return eventName;
-}
-
 #pragma mark - TableView methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -167,8 +152,8 @@ static NSString * const kShowWikiForEvent = @"showWikiForEvent";
         [GW2UserSettings sharedSettings].userEventIDandName = favoriteEvent;
     } else {
         GW2WikiViewController *destinationVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kShowWikiForEvent];
-        NSString *selectedEventID = [self.events.eventList[indexPath.row] eventID];
-        destinationVC.eventName = [self getNameForEventWithID:selectedEventID];
+        NSString *eventName = [self.activeEventNames[indexPath.row] eventName];
+        destinationVC.eventName = eventName;
         [self.navigationController pushViewController:destinationVC animated:YES];
     }
 }
