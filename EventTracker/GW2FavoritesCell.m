@@ -8,8 +8,8 @@
 
 #import "GW2FavoritesCell.h"
 
-const CGFloat kLeftLabelMargin = 87.0f;
-const CGFloat kMinLeftLabelMargin = 10.0f;
+const CGFloat kLeftLabelMargin = 75.0f;
+const CGFloat kMinLeftLabelMargin = 0.0f;
 
 @interface GW2FavoritesCell ()
 
