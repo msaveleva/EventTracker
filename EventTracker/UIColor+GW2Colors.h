@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GW2Event.h"
 
 @interface UIColor (GW2Colors)
+
++ (UIColor *)getColorForStatus:(GW2EventStatus)status;
+
++ (UIColor *)inactiveEventStatusLabelColor;
++ (UIColor *)activeEventStatusLabelColor;
++ (UIColor *)successEventStatusLabelColor;
++ (UIColor *)failEventStatusLabelColor;
++ (UIColor *)warmupEventStatusLabelColor;
++ (UIColor *)preparationEventStatusLabelColor;
 
 @end
