@@ -117,7 +117,7 @@ static NSString *const kFavoritesCell = @"favoritesCell";
         NSDictionary *eventInfo = self.userFavoritEventIDs[indexPath.row];
         cell.eventStatusLabel.text = [self convertEventStateFromState:event.eventState];
         cell.eventNameLabel.text = [eventInfo objectForKey:@"eventName"];
-        [cell.eventNameLabel setTextColor:[UIColor getColorForStatus:event.eventState]];
+        [cell.eventStatusLabel setTextColor:[UIColor getColorForStatus:event.eventState]];
     }
     
     return cell;
