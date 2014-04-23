@@ -126,7 +126,7 @@
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l27-BE-8K8">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.64687615633010864" green="0.87547403573989868" blue="0.99929124116897583" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.81704400509999997" green="0.81704400509999997" blue="0.81704400509999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="sP6-cQ-V7f">
                                     <size key="itemSize" width="160" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -200,7 +200,7 @@
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gcR-Lj-TYl">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.74787694381213976" green="1" blue="0.68767628047719698" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.81704400509999997" green="0.81704400509999997" blue="0.81704400509999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rDw-AR-lwS">
                                     <size key="itemSize" width="320" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="10"/>
