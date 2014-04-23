@@ -27,6 +27,7 @@
 		3F7A540618DB744900F77F88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A540418DB744900F77F88 /* InfoPlist.strings */; };
 		3F7A540818DB744900F77F88 /* EventTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A540718DB744900F77F88 /* EventTrackerTests.m */; };
 		3F85F6B519023E85003B99C3 /* GW2FavoritesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85F6B419023E85003B99C3 /* GW2FavoritesCell.m */; };
+		3F8F31141907803C00618DEE /* UIColor+GW2Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F31131907803C00618DEE /* UIColor+GW2Colors.m */; };
 		3F97629E18F196BA00453C8C /* GW2EventNameList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F97629D18F196BA00453C8C /* GW2EventNameList.m */; };
 		3FE77CE018E4A32800F9DB04 /* GW2EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CDF18E4A32800F9DB04 /* GW2EventsViewController.m */; };
 		3FE77CE318E4A36C00F9DB04 /* GW2FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE218E4A36C00F9DB04 /* GW2FavoritesViewController.m */; };
@@ -81,6 +82,8 @@
 		3F7A540718DB744900F77F88 /* EventTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventTrackerTests.m; sourceTree = "<group>"; };
 		3F85F6B319023E85003B99C3 /* GW2FavoritesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2FavoritesCell.h; sourceTree = "<group>"; };
 		3F85F6B419023E85003B99C3 /* GW2FavoritesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2FavoritesCell.m; sourceTree = "<group>"; };
+		3F8F31121907803C00618DEE /* UIColor+GW2Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GW2Colors.h"; sourceTree = "<group>"; };
+		3F8F31131907803C00618DEE /* UIColor+GW2Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GW2Colors.m"; sourceTree = "<group>"; };
 		3F97629C18F196BA00453C8C /* GW2EventNameList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventNameList.h; sourceTree = "<group>"; };
 		3F97629D18F196BA00453C8C /* GW2EventNameList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventNameList.m; sourceTree = "<group>"; };
 		3FE77CDE18E4A32800F9DB04 /* GW2EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventsViewController.h; sourceTree = "<group>"; };
@@ -187,6 +190,7 @@
 		3F7A53E218DB744900F77F88 /* EventTracker */ = {
 			isa = PBXGroup;
 			children = (
+				3F8F310E19077F5B00618DEE /* Categories */,
 				3F85F6B219023E65003B99C3 /* Cells */,
 				3F21419418E85E9600213CCC /* UserSettings */,
 				3F21418F18E80BE200213CCC /* Network */,
@@ -237,6 +241,15 @@
 				3F85F6B419023E85003B99C3 /* GW2FavoritesCell.m */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		3F8F310E19077F5B00618DEE /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				3F8F31121907803C00618DEE /* UIColor+GW2Colors.h */,
+				3F8F31131907803C00618DEE /* UIColor+GW2Colors.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		3FE77CDD18E4A0A400F9DB04 /* ViewControllers */ = {
@@ -428,6 +441,7 @@
 				4C0390C318E6DD1800783F6E /* GW2Server.m in Sources */,
 				3F21419218E80BF400213CCC /* GW2Client.m in Sources */,
 				3F21419A18E86C6E00213CCC /* GW2MapList.m in Sources */,
+				3F8F31141907803C00618DEE /* UIColor+GW2Colors.m in Sources */,
 				3FE77CE318E4A36C00F9DB04 /* GW2FavoritesViewController.m in Sources */,
 				3FE77CE618E4A37D00F9DB04 /* GW2SettingsViewController.m in Sources */,
 				3FE77CE918E4A49500F9DB04 /* GW2ServerListViewController.m in Sources */,
