@@ -28,4 +28,6 @@
 }
 */
 
+- (IBAction)removeFromFavorites:(id)sender {
+}
 @end
