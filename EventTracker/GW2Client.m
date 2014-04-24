@@ -17,11 +17,11 @@ static NSString * const eventNameListURL = @"https://api.guildwars2.com/v1/event
 
 @implementation GW2Client
 
-- (void)fetchSeverListWithCompletionHandler:(void (^)(NSData *recievedData))completionHandler
+- (void)fetchWithURL:(NSURL *)url andCompletionHandler:(void (^)(NSData *recievedData))completionHandler
 {
     NSURLSession *session = [NSURLSession sharedSession];
     
-    [[session dataTaskWithURL:[NSURL URLWithString:serverListURL]
+    [[session dataTaskWithURL:url
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error){
@@ -31,38 +31,21 @@ static NSString * const eventNameListURL = @"https://api.guildwars2.com/v1/event
                     });
                 }
             }] resume];
+}
+
+- (void)fetchSeverListWithCompletionHandler:(void (^)(NSData *recievedData))completionHandler
+{
+    [self fetchWithURL:[NSURL URLWithString:serverListURL] andCompletionHandler:completionHandler];
 }
 
 - (void)fetchMapListWithCompletionHandler:(void (^)(NSData *))completionHandler
 {
-    NSURLSession *session = [NSURLSession sharedSession];
-    
-    [[session dataTaskWithURL:[NSURL URLWithString:mapListURL]
-            completionHandler:^(NSData *data,
-                                NSURLResponse *response,
-                                NSError *error){
-                if (!error) {
-                    dispatch_sync(dispatch_get_main_queue(), ^{
-                        completionHandler(data);
-                    });
-                }
-            }] resume];
+    [self fetchWithURL:[NSURL URLWithString:mapListURL] andCompletionHandler:completionHandler];
 }
 
 - (void)fetchEventNameListWithCompletionHandler:(void (^)(NSData *))completionHandler
 {
-    NSURLSession *session = [NSURLSession sharedSession];
-    
-    [[session dataTaskWithURL:[NSURL URLWithString:eventNameListURL]
-            completionHandler:^(NSData *data,
-                                NSURLResponse *response,
-                                NSError *error){
-                if (!error) {
-                    dispatch_sync(dispatch_get_main_queue(), ^{
-                        completionHandler(data);
-                    });
-                }
-            }] resume];
+    [self fetchWithURL:[NSURL URLWithString:eventNameListURL] andCompletionHandler:completionHandler];
 }
 
 - (void)fetchEventListForServerWithID:(NSNumber *)serverID
@@ -76,18 +59,7 @@ static NSString * const eventNameListURL = @"https://api.guildwars2.com/v1/event
                                   [NSString stringWithFormat:@"&map_id=%ld",
                                    (long)[mapID integerValue]]];
     
-    NSURLSession *session = [NSURLSession sharedSession];
-    
-    [[session dataTaskWithURL:[NSURL URLWithString:eventListWithMap]
-            completionHandler:^(NSData *data,
-                                NSURLResponse *response,
-                                NSError *error){
-                if (!error) {
-                    dispatch_sync(dispatch_get_main_queue(), ^{
-                        completionHandler(data);
-                    });
-                }
-            }] resume];
+    [self fetchWithURL:[NSURL URLWithString:eventListWithMap] andCompletionHandler:completionHandler];
 }
 
 - (void)fetchEventDetailsForServerWithID:(NSNumber *)serverID
@@ -101,18 +73,7 @@ static NSString * const eventNameListURL = @"https://api.guildwars2.com/v1/event
                                       [NSString stringWithFormat:@"&event_id=%@",
                                        eventID]];
     
-    NSURLSession *session = [NSURLSession sharedSession];
-    
-    [[session dataTaskWithURL:[NSURL URLWithString:eventListWithEventID]
-            completionHandler:^(NSData *data,
-                                NSURLResponse *response,
-                                NSError *error){
-                if (!error) {
-                    dispatch_sync(dispatch_get_main_queue(), ^{
-                        completionHandler(data);
-                    });
-                }
-            }] resume];
+    [self fetchWithURL:[NSURL URLWithString:eventListWithEventID] andCompletionHandler:completionHandler];
 }
 
 @end
