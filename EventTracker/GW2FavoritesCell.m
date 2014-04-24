@@ -10,7 +10,7 @@
 
 static CGFloat kMinContentMargin = 10.0f;
 static CGFloat kMaxContentMargin = 94.0f;
-static CGFloat kAnimationSpeed = 0.5f;
+static CGFloat kAnimationSpeed = 0.3f;
 
 @interface GW2FavoritesCell ()
 
@@ -37,6 +37,7 @@ static CGFloat kAnimationSpeed = 0.5f;
     
     self.isEditing = NO;
     self.animatedConstraint.constant = kMinContentMargin;
+    self.removeButton.alpha = 0.0f;
 }
 
 - (IBAction)removeFromFavorites:(id)sender {
@@ -48,6 +49,8 @@ static CGFloat kAnimationSpeed = 0.5f;
 {
     [UIView animateWithDuration:kAnimationSpeed animations:^{
         self.animatedConstraint.constant = kMinContentMargin;
+        self.removeButton.alpha = 0.0f;
+        [self layoutIfNeeded];
     } completion:^(BOOL isFinished){
         self.isEditing = NO;
     }];
@@ -57,6 +60,8 @@ static CGFloat kAnimationSpeed = 0.5f;
 {
     [UIView animateWithDuration:kAnimationSpeed animations:^{
         self.animatedConstraint.constant = kMaxContentMargin;
+        self.removeButton.alpha = 1.0f;
+        [self layoutIfNeeded];
     } completion:^(BOOL isFinished){
         self.isEditing = YES;
     }];
