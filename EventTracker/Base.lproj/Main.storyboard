@@ -396,10 +396,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Njd-Fe-cE4" firstAttribute="top" secondItem="u0k-it-Std" secondAttribute="top" id="7Ef-9g-7bz"/>
-                            <constraint firstAttribute="trailing" secondItem="Njd-Fe-cE4" secondAttribute="trailing" id="A7q-l6-9nA"/>
-                            <constraint firstItem="Njd-Fe-cE4" firstAttribute="leading" secondItem="u0k-it-Std" secondAttribute="leading" id="Urh-8i-G5Q"/>
-                            <constraint firstItem="gAq-xp-BTR" firstAttribute="top" secondItem="Njd-Fe-cE4" secondAttribute="bottom" id="zwk-0E-5mg"/>
+                            <constraint firstAttribute="trailing" secondItem="Njd-Fe-cE4" secondAttribute="trailing" id="7AL-cX-dnZ"/>
+                            <constraint firstItem="Njd-Fe-cE4" firstAttribute="top" secondItem="u0k-it-Std" secondAttribute="top" id="JiS-l8-K47"/>
+                            <constraint firstItem="Njd-Fe-cE4" firstAttribute="leading" secondItem="u0k-it-Std" secondAttribute="leading" id="e4T-5E-2dG"/>
+                            <constraint firstAttribute="bottom" secondItem="Njd-Fe-cE4" secondAttribute="bottom" id="hdK-oV-ICQ"/>
                         </constraints>
                     </view>
                     <connections>
