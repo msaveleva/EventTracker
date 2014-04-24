@@ -25,9 +25,11 @@ static NSString * const eventNameListURL = @"https://api.guildwars2.com/v1/event
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error){
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    completionHandler(data);
-                });
+                if (!error) {
+                    dispatch_sync(dispatch_get_main_queue(), ^{
+                        completionHandler(data);
+                    });
+                }
             }] resume];
 }
 
@@ -39,9 +41,11 @@ static NSString * const eventNameListURL = @"https://api.guildwars2.com/v1/event
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error){
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    completionHandler(data);
-                });
+                if (!error) {
+                    dispatch_sync(dispatch_get_main_queue(), ^{
+                        completionHandler(data);
+                    });
+                }
             }] resume];
 }
 
@@ -53,9 +57,11 @@ static NSString * const eventNameListURL = @"https://api.guildwars2.com/v1/event
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error){
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    completionHandler(data);
-                });
+                if (!error) {
+                    dispatch_sync(dispatch_get_main_queue(), ^{
+                        completionHandler(data);
+                    });
+                }
             }] resume];
 }
 
@@ -76,9 +82,11 @@ static NSString * const eventNameListURL = @"https://api.guildwars2.com/v1/event
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error){
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    completionHandler(data);
-                });
+                if (!error) {
+                    dispatch_sync(dispatch_get_main_queue(), ^{
+                        completionHandler(data);
+                    });
+                }
             }] resume];
 }
 
@@ -99,9 +107,11 @@ static NSString * const eventNameListURL = @"https://api.guildwars2.com/v1/event
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error){
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    completionHandler(data);
-                });
+                if (!error) {
+                    dispatch_sync(dispatch_get_main_queue(), ^{
+                        completionHandler(data);
+                    });
+                }
             }] resume];
 }
 
