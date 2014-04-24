@@ -8,26 +8,43 @@
 
 #import "GW2FavoritesCell.h"
 
+@interface GW2FavoritesCell ()
+
+@property (strong, nonatomic) UISwipeGestureRecognizer *leftSwipeGesture;
+@property (strong, nonatomic) UISwipeGestureRecognizer *rightSwipeGesture;
+
+@end
+
 @implementation GW2FavoritesCell
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        self.leftSwipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftSwipe:)];
+        [self.leftSwipeGesture setDirection:UISwipeGestureRecognizerDirectionLeft];
+        [self addGestureRecognizer:self.leftSwipeGesture];
+        
+        self.rightSwipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightSwipe:)];
+        [self.rightSwipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
+        [self addGestureRecognizer:self.rightSwipeGesture];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
 - (IBAction)removeFromFavorites:(id)sender {
 }
+
+#pragma mark - Edition mode animation
+
+- (void)handleLeftSwipe:(id)sender
+{
+    
+}
+
+- (void)handleRightSwipe:(id)sender
+{
+    
+}
+
 @end
