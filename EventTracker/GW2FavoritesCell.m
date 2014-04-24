@@ -8,6 +8,10 @@
 
 #import "GW2FavoritesCell.h"
 
+static CGFloat kMinContentMargin = 10.0f;
+static CGFloat kMaxContentMargin = 94.0f;
+static CGFloat kAnimationSpeed = 0.5f;
+
 @interface GW2FavoritesCell ()
 
 @property (strong, nonatomic) UISwipeGestureRecognizer *leftSwipeGesture;
@@ -17,19 +21,22 @@
 
 @implementation GW2FavoritesCell
 
-- (id)initWithFrame:(CGRect)frame
+- (void)awakeFromNib
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.leftSwipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftSwipe:)];
-        [self.leftSwipeGesture setDirection:UISwipeGestureRecognizerDirectionLeft];
-        [self addGestureRecognizer:self.leftSwipeGesture];
-        
-        self.rightSwipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightSwipe:)];
-        [self.rightSwipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
-        [self addGestureRecognizer:self.rightSwipeGesture];
-    }
-    return self;
+    self.leftSwipeGesture =
+    [[UISwipeGestureRecognizer alloc] initWithTarget:self
+                                              action:@selector(handleLeftSwipe:)];
+    [self.leftSwipeGesture setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self addGestureRecognizer:self.leftSwipeGesture];
+    
+    self.rightSwipeGesture =
+    [[UISwipeGestureRecognizer alloc] initWithTarget:self
+                                              action:@selector(handleRightSwipe:)];
+    [self.rightSwipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self addGestureRecognizer:self.rightSwipeGesture];
+    
+    self.isEditing = NO;
+    self.animatedConstraint.constant = kMinContentMargin;
 }
 
 - (IBAction)removeFromFavorites:(id)sender {
@@ -39,12 +46,20 @@
 
 - (void)handleLeftSwipe:(id)sender
 {
-    
+    [UIView animateWithDuration:kAnimationSpeed animations:^{
+        self.animatedConstraint.constant = kMinContentMargin;
+    } completion:^(BOOL isFinished){
+        self.isEditing = NO;
+    }];
 }
 
 - (void)handleRightSwipe:(id)sender
 {
-    
+    [UIView animateWithDuration:kAnimationSpeed animations:^{
+        self.animatedConstraint.constant = kMaxContentMargin;
+    } completion:^(BOOL isFinished){
+        self.isEditing = YES;
+    }];
 }
 
 @end
