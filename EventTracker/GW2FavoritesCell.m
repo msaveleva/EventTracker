@@ -8,24 +8,63 @@
 
 #import "GW2FavoritesCell.h"
 
+static CGFloat kMinContentMargin = 10.0f;
+static CGFloat kMaxContentMargin = 94.0f;
+static CGFloat kAnimationSpeed = 0.3f;
+
+@interface GW2FavoritesCell ()
+
+@property (strong, nonatomic) UISwipeGestureRecognizer *leftSwipeGesture;
+@property (strong, nonatomic) UISwipeGestureRecognizer *rightSwipeGesture;
+
+@end
+
 @implementation GW2FavoritesCell
 
-- (id)initWithFrame:(CGRect)frame
+- (void)awakeFromNib
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    self.leftSwipeGesture =
+    [[UISwipeGestureRecognizer alloc] initWithTarget:self
+                                              action:@selector(handleLeftSwipe:)];
+    [self.leftSwipeGesture setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self addGestureRecognizer:self.leftSwipeGesture];
+    
+    self.rightSwipeGesture =
+    [[UISwipeGestureRecognizer alloc] initWithTarget:self
+                                              action:@selector(handleRightSwipe:)];
+    [self.rightSwipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self addGestureRecognizer:self.rightSwipeGesture];
+    
+    self.isEditing = NO;
+    self.animatedConstraint.constant = kMinContentMargin;
+    self.removeButton.alpha = 0.0f;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+- (IBAction)removeFromFavorites:(id)sender {
 }
-*/
+
+#pragma mark - Edition mode animation
+
+- (void)handleLeftSwipe:(id)sender
+{
+    [UIView animateWithDuration:kAnimationSpeed animations:^{
+        self.animatedConstraint.constant = kMinContentMargin;
+        self.removeButton.alpha = 0.0f;
+        [self layoutIfNeeded];
+    } completion:^(BOOL isFinished){
+        self.isEditing = NO;
+    }];
+}
+
+- (void)handleRightSwipe:(id)sender
+{
+    [UIView animateWithDuration:kAnimationSpeed animations:^{
+        self.animatedConstraint.constant = kMaxContentMargin;
+        self.removeButton.alpha = 1.0f;
+        [self layoutIfNeeded];
+    } completion:^(BOOL isFinished){
+        self.isEditing = YES;
+    }];
+}
 
 @end
