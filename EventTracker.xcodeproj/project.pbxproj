@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26B4EE5B8A242F42CFDEF5EB /* libPods-EventTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE27E154BDB4ED5F08F765F8 /* libPods-EventTracker.a */; };
+		3F21419218E80BF400213CCC /* GW2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F21419118E80BF400213CCC /* GW2Client.m */; };
+		3F21419718E85EA900213CCC /* GW2UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F21419618E85EA900213CCC /* GW2UserSettings.m */; };
+		3F21419A18E86C6E00213CCC /* GW2MapList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F21419918E86C6E00213CCC /* GW2MapList.m */; };
+		3F21419D18E9F16B00213CCC /* GW2MapListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F21419C18E9F16B00213CCC /* GW2MapListViewController.m */; };
+		3F51C03B18F8594F004A4867 /* GW2WikiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F51C03A18F8594F004A4867 /* GW2WikiViewController.m */; };
 		3F7A53DD18DB744900F77F88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53DC18DB744900F77F88 /* Foundation.framework */; };
 		3F7A53DF18DB744900F77F88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53DE18DB744900F77F88 /* CoreGraphics.framework */; };
 		3F7A53E118DB744900F77F88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53E018DB744900F77F88 /* UIKit.framework */; };
@@ -14,13 +20,26 @@
 		3F7A53E918DB744900F77F88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A53E818DB744900F77F88 /* main.m */; };
 		3F7A53ED18DB744900F77F88 /* GW2AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A53EC18DB744900F77F88 /* GW2AppDelegate.m */; };
 		3F7A53F018DB744900F77F88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A53EE18DB744900F77F88 /* Main.storyboard */; };
-		3F7A53F318DB744900F77F88 /* GW2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A53F218DB744900F77F88 /* GW2ViewController.m */; };
 		3F7A53F518DB744900F77F88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A53F418DB744900F77F88 /* Images.xcassets */; };
 		3F7A53FC18DB744900F77F88 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53FB18DB744900F77F88 /* XCTest.framework */; };
 		3F7A53FD18DB744900F77F88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53DC18DB744900F77F88 /* Foundation.framework */; };
 		3F7A53FE18DB744900F77F88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A53E018DB744900F77F88 /* UIKit.framework */; };
 		3F7A540618DB744900F77F88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A540418DB744900F77F88 /* InfoPlist.strings */; };
 		3F7A540818DB744900F77F88 /* EventTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A540718DB744900F77F88 /* EventTrackerTests.m */; };
+		3F85F6B519023E85003B99C3 /* GW2FavoritesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85F6B419023E85003B99C3 /* GW2FavoritesCell.m */; };
+		3F8F31141907803C00618DEE /* UIColor+GW2Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F31131907803C00618DEE /* UIColor+GW2Colors.m */; };
+		3F97629E18F196BA00453C8C /* GW2EventNameList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F97629D18F196BA00453C8C /* GW2EventNameList.m */; };
+		3FE77CE018E4A32800F9DB04 /* GW2EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CDF18E4A32800F9DB04 /* GW2EventsViewController.m */; };
+		3FE77CE318E4A36C00F9DB04 /* GW2FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE218E4A36C00F9DB04 /* GW2FavoritesViewController.m */; };
+		3FE77CE618E4A37D00F9DB04 /* GW2SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE518E4A37D00F9DB04 /* GW2SettingsViewController.m */; };
+		3FE77CE918E4A49500F9DB04 /* GW2ServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE77CE818E4A49500F9DB04 /* GW2ServerListViewController.m */; };
+		4C0390C318E6DD1800783F6E /* GW2Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0390C218E6DD1800783F6E /* GW2Server.m */; };
+		4C0390C618E6DD2600783F6E /* GW2Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0390C518E6DD2600783F6E /* GW2Event.m */; };
+		4C0390C918E6DD3400783F6E /* GW2EventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0390C818E6DD3400783F6E /* GW2EventList.m */; };
+		4C0390CC18E6DD3B00783F6E /* GW2ServerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0390CB18E6DD3B00783F6E /* GW2ServerList.m */; };
+		4C0390CF18E6E01100783F6E /* GW2Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0390CE18E6E01100783F6E /* GW2Map.m */; };
+		4C0390D218E6E44500783F6E /* GW2EventName.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0390D118E6E44500783F6E /* GW2EventName.m */; };
+		4CA511C118F9660B0024442A /* GW2EventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA511C018F9660B0024442A /* GW2EventManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +53,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30FCEE27A6DB749BBA057055 /* Pods-EventTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-EventTracker/Pods-EventTracker.release.xcconfig"; sourceTree = "<group>"; };
+		3F21419018E80BF400213CCC /* GW2Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2Client.h; sourceTree = "<group>"; };
+		3F21419118E80BF400213CCC /* GW2Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2Client.m; sourceTree = "<group>"; };
+		3F21419518E85EA900213CCC /* GW2UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2UserSettings.h; sourceTree = "<group>"; };
+		3F21419618E85EA900213CCC /* GW2UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2UserSettings.m; sourceTree = "<group>"; };
+		3F21419818E86C6E00213CCC /* GW2MapList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2MapList.h; sourceTree = "<group>"; };
+		3F21419918E86C6E00213CCC /* GW2MapList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2MapList.m; sourceTree = "<group>"; };
+		3F21419B18E9F16B00213CCC /* GW2MapListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2MapListViewController.h; sourceTree = "<group>"; };
+		3F21419C18E9F16B00213CCC /* GW2MapListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2MapListViewController.m; sourceTree = "<group>"; };
+		3F51C03918F8594F004A4867 /* GW2WikiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2WikiViewController.h; sourceTree = "<group>"; };
+		3F51C03A18F8594F004A4867 /* GW2WikiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2WikiViewController.m; sourceTree = "<group>"; };
 		3F7A53D918DB744900F77F88 /* EventTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7A53DC18DB744900F77F88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F7A53DE18DB744900F77F88 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,14 +75,42 @@
 		3F7A53EB18DB744900F77F88 /* GW2AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GW2AppDelegate.h; sourceTree = "<group>"; };
 		3F7A53EC18DB744900F77F88 /* GW2AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GW2AppDelegate.m; sourceTree = "<group>"; };
 		3F7A53EF18DB744900F77F88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3F7A53F118DB744900F77F88 /* GW2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GW2ViewController.h; sourceTree = "<group>"; };
-		3F7A53F218DB744900F77F88 /* GW2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GW2ViewController.m; sourceTree = "<group>"; };
 		3F7A53F418DB744900F77F88 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3F7A53FA18DB744900F77F88 /* EventTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7A53FB18DB744900F77F88 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3F7A540318DB744900F77F88 /* EventTrackerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EventTrackerTests-Info.plist"; sourceTree = "<group>"; };
 		3F7A540518DB744900F77F88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F7A540718DB744900F77F88 /* EventTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventTrackerTests.m; sourceTree = "<group>"; };
+		3F85F6B319023E85003B99C3 /* GW2FavoritesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2FavoritesCell.h; sourceTree = "<group>"; };
+		3F85F6B419023E85003B99C3 /* GW2FavoritesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2FavoritesCell.m; sourceTree = "<group>"; };
+		3F8F31121907803C00618DEE /* UIColor+GW2Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GW2Colors.h"; sourceTree = "<group>"; };
+		3F8F31131907803C00618DEE /* UIColor+GW2Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GW2Colors.m"; sourceTree = "<group>"; };
+		3F97629C18F196BA00453C8C /* GW2EventNameList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventNameList.h; sourceTree = "<group>"; };
+		3F97629D18F196BA00453C8C /* GW2EventNameList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventNameList.m; sourceTree = "<group>"; };
+		3FE77CDE18E4A32800F9DB04 /* GW2EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventsViewController.h; sourceTree = "<group>"; };
+		3FE77CDF18E4A32800F9DB04 /* GW2EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventsViewController.m; sourceTree = "<group>"; };
+		3FE77CE118E4A36C00F9DB04 /* GW2FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2FavoritesViewController.h; sourceTree = "<group>"; };
+		3FE77CE218E4A36C00F9DB04 /* GW2FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2FavoritesViewController.m; sourceTree = "<group>"; };
+		3FE77CE418E4A37D00F9DB04 /* GW2SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2SettingsViewController.h; sourceTree = "<group>"; };
+		3FE77CE518E4A37D00F9DB04 /* GW2SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2SettingsViewController.m; sourceTree = "<group>"; };
+		3FE77CE718E4A49500F9DB04 /* GW2ServerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2ServerListViewController.h; sourceTree = "<group>"; };
+		3FE77CE818E4A49500F9DB04 /* GW2ServerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2ServerListViewController.m; sourceTree = "<group>"; };
+		4C0390C118E6DD1800783F6E /* GW2Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2Server.h; sourceTree = "<group>"; };
+		4C0390C218E6DD1800783F6E /* GW2Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2Server.m; sourceTree = "<group>"; };
+		4C0390C418E6DD2600783F6E /* GW2Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2Event.h; sourceTree = "<group>"; };
+		4C0390C518E6DD2600783F6E /* GW2Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2Event.m; sourceTree = "<group>"; };
+		4C0390C718E6DD3400783F6E /* GW2EventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventList.h; sourceTree = "<group>"; };
+		4C0390C818E6DD3400783F6E /* GW2EventList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventList.m; sourceTree = "<group>"; };
+		4C0390CA18E6DD3B00783F6E /* GW2ServerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2ServerList.h; sourceTree = "<group>"; };
+		4C0390CB18E6DD3B00783F6E /* GW2ServerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2ServerList.m; sourceTree = "<group>"; };
+		4C0390CD18E6E01100783F6E /* GW2Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2Map.h; sourceTree = "<group>"; };
+		4C0390CE18E6E01100783F6E /* GW2Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2Map.m; sourceTree = "<group>"; };
+		4C0390D018E6E44500783F6E /* GW2EventName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventName.h; sourceTree = "<group>"; };
+		4C0390D118E6E44500783F6E /* GW2EventName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventName.m; sourceTree = "<group>"; };
+		4CA511BF18F9660B0024442A /* GW2EventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GW2EventManager.h; sourceTree = "<group>"; };
+		4CA511C018F9660B0024442A /* GW2EventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GW2EventManager.m; sourceTree = "<group>"; };
+		A039FE78C0AE4CE3273B8CAA /* Pods-EventTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventTracker/Pods-EventTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		AE27E154BDB4ED5F08F765F8 /* libPods-EventTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EventTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +121,7 @@
 				3F7A53DF18DB744900F77F88 /* CoreGraphics.framework in Frameworks */,
 				3F7A53E118DB744900F77F88 /* UIKit.framework in Frameworks */,
 				3F7A53DD18DB744900F77F88 /* Foundation.framework in Frameworks */,
+				26B4EE5B8A242F42CFDEF5EB /* libPods-EventTracker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +138,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F21418F18E80BE200213CCC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3F21419018E80BF400213CCC /* GW2Client.h */,
+				3F21419118E80BF400213CCC /* GW2Client.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		3F21419418E85E9600213CCC /* UserSettings */ = {
+			isa = PBXGroup;
+			children = (
+				3F21419518E85EA900213CCC /* GW2UserSettings.h */,
+				3F21419618E85EA900213CCC /* GW2UserSettings.m */,
+			);
+			name = UserSettings;
+			sourceTree = "<group>";
+		};
 		3F7A53D018DB744900F77F88 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +163,7 @@
 				3F7A540118DB744900F77F88 /* EventTrackerTests */,
 				3F7A53DB18DB744900F77F88 /* Frameworks */,
 				3F7A53DA18DB744900F77F88 /* Products */,
+				B2F930A5A56DB00F74365EF1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +183,7 @@
 				3F7A53DE18DB744900F77F88 /* CoreGraphics.framework */,
 				3F7A53E018DB744900F77F88 /* UIKit.framework */,
 				3F7A53FB18DB744900F77F88 /* XCTest.framework */,
+				AE27E154BDB4ED5F08F765F8 /* libPods-EventTracker.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,11 +191,15 @@
 		3F7A53E218DB744900F77F88 /* EventTracker */ = {
 			isa = PBXGroup;
 			children = (
+				3F8F310E19077F5B00618DEE /* Categories */,
+				3F85F6B219023E65003B99C3 /* Cells */,
+				3F21419418E85E9600213CCC /* UserSettings */,
+				3F21418F18E80BE200213CCC /* Network */,
+				4C0390C018E6DCFB00783F6E /* Model */,
+				3FE77CDD18E4A0A400F9DB04 /* ViewControllers */,
 				3F7A53EB18DB744900F77F88 /* GW2AppDelegate.h */,
 				3F7A53EC18DB744900F77F88 /* GW2AppDelegate.m */,
 				3F7A53EE18DB744900F77F88 /* Main.storyboard */,
-				3F7A53F118DB744900F77F88 /* GW2ViewController.h */,
-				3F7A53F218DB744900F77F88 /* GW2ViewController.m */,
 				3F7A53F418DB744900F77F88 /* Images.xcassets */,
 				3F7A53E318DB744900F77F88 /* Supporting Files */,
 			);
@@ -152,6 +235,77 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3F85F6B219023E65003B99C3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3F85F6B319023E85003B99C3 /* GW2FavoritesCell.h */,
+				3F85F6B419023E85003B99C3 /* GW2FavoritesCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		3F8F310E19077F5B00618DEE /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				3F8F31121907803C00618DEE /* UIColor+GW2Colors.h */,
+				3F8F31131907803C00618DEE /* UIColor+GW2Colors.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		3FE77CDD18E4A0A400F9DB04 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FE77CDE18E4A32800F9DB04 /* GW2EventsViewController.h */,
+				3FE77CDF18E4A32800F9DB04 /* GW2EventsViewController.m */,
+				3FE77CE118E4A36C00F9DB04 /* GW2FavoritesViewController.h */,
+				3FE77CE218E4A36C00F9DB04 /* GW2FavoritesViewController.m */,
+				3FE77CE418E4A37D00F9DB04 /* GW2SettingsViewController.h */,
+				3FE77CE518E4A37D00F9DB04 /* GW2SettingsViewController.m */,
+				3FE77CE718E4A49500F9DB04 /* GW2ServerListViewController.h */,
+				3FE77CE818E4A49500F9DB04 /* GW2ServerListViewController.m */,
+				3F21419B18E9F16B00213CCC /* GW2MapListViewController.h */,
+				3F21419C18E9F16B00213CCC /* GW2MapListViewController.m */,
+				3F51C03918F8594F004A4867 /* GW2WikiViewController.h */,
+				3F51C03A18F8594F004A4867 /* GW2WikiViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4C0390C018E6DCFB00783F6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C0390C118E6DD1800783F6E /* GW2Server.h */,
+				4C0390C218E6DD1800783F6E /* GW2Server.m */,
+				4C0390CA18E6DD3B00783F6E /* GW2ServerList.h */,
+				4C0390CB18E6DD3B00783F6E /* GW2ServerList.m */,
+				4C0390C418E6DD2600783F6E /* GW2Event.h */,
+				4C0390C518E6DD2600783F6E /* GW2Event.m */,
+				4C0390C718E6DD3400783F6E /* GW2EventList.h */,
+				4C0390C818E6DD3400783F6E /* GW2EventList.m */,
+				4C0390D018E6E44500783F6E /* GW2EventName.h */,
+				4C0390D118E6E44500783F6E /* GW2EventName.m */,
+				3F97629C18F196BA00453C8C /* GW2EventNameList.h */,
+				3F97629D18F196BA00453C8C /* GW2EventNameList.m */,
+				4C0390CD18E6E01100783F6E /* GW2Map.h */,
+				4C0390CE18E6E01100783F6E /* GW2Map.m */,
+				3F21419818E86C6E00213CCC /* GW2MapList.h */,
+				3F21419918E86C6E00213CCC /* GW2MapList.m */,
+				4CA511BF18F9660B0024442A /* GW2EventManager.h */,
+				4CA511C018F9660B0024442A /* GW2EventManager.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B2F930A5A56DB00F74365EF1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A039FE78C0AE4CE3273B8CAA /* Pods-EventTracker.debug.xcconfig */,
+				30FCEE27A6DB749BBA057055 /* Pods-EventTracker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +313,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F7A540B18DB744900F77F88 /* Build configuration list for PBXNativeTarget "EventTracker" */;
 			buildPhases = (
+				1EA42DEF3FEF17CA4EAC5A81 /* [CP] Check Pods Manifest.lock */,
 				3F7A53D518DB744900F77F88 /* Sources */,
 				3F7A53D618DB744900F77F88 /* Frameworks */,
 				3F7A53D718DB744900F77F88 /* Resources */,
+				1528A27BAFB6F9974F426FC3 /* [CP] Embed Pods Frameworks */,
+				6079803D41FD1335AB76451C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,14 +402,80 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1528A27BAFB6F9974F426FC3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EventTracker/Pods-EventTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1EA42DEF3FEF17CA4EAC5A81 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6079803D41FD1335AB76451C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EventTracker/Pods-EventTracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3F7A53D518DB744900F77F88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F7A53F318DB744900F77F88 /* GW2ViewController.m in Sources */,
+				3F21419718E85EA900213CCC /* GW2UserSettings.m in Sources */,
+				3F97629E18F196BA00453C8C /* GW2EventNameList.m in Sources */,
+				4C0390D218E6E44500783F6E /* GW2EventName.m in Sources */,
+				3FE77CE018E4A32800F9DB04 /* GW2EventsViewController.m in Sources */,
+				3F85F6B519023E85003B99C3 /* GW2FavoritesCell.m in Sources */,
+				4C0390CC18E6DD3B00783F6E /* GW2ServerList.m in Sources */,
+				3F51C03B18F8594F004A4867 /* GW2WikiViewController.m in Sources */,
 				3F7A53E918DB744900F77F88 /* main.m in Sources */,
+				4CA511C118F9660B0024442A /* GW2EventManager.m in Sources */,
+				4C0390C318E6DD1800783F6E /* GW2Server.m in Sources */,
+				3F21419218E80BF400213CCC /* GW2Client.m in Sources */,
+				3F21419A18E86C6E00213CCC /* GW2MapList.m in Sources */,
+				3F8F31141907803C00618DEE /* UIColor+GW2Colors.m in Sources */,
+				3FE77CE318E4A36C00F9DB04 /* GW2FavoritesViewController.m in Sources */,
+				3FE77CE618E4A37D00F9DB04 /* GW2SettingsViewController.m in Sources */,
+				3FE77CE918E4A49500F9DB04 /* GW2ServerListViewController.m in Sources */,
 				3F7A53ED18DB744900F77F88 /* GW2AppDelegate.m in Sources */,
+				4C0390C618E6DD2600783F6E /* GW2Event.m in Sources */,
+				4C0390CF18E6E01100783F6E /* GW2Map.m in Sources */,
+				3F21419D18E9F16B00213CCC /* GW2MapListViewController.m in Sources */,
+				4C0390C918E6DD3400783F6E /* GW2EventList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +597,7 @@
 		};
 		3F7A540C18DB744900F77F88 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A039FE78C0AE4CE3273B8CAA /* Pods-EventTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -387,6 +611,7 @@
 		};
 		3F7A540D18DB744900F77F88 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30FCEE27A6DB749BBA057055 /* Pods-EventTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -457,6 +682,7 @@
 				3F7A540D18DB744900F77F88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F7A540E18DB744900F77F88 /* Build configuration list for PBXNativeTarget "EventTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +691,7 @@
 				3F7A541018DB744900F77F88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
